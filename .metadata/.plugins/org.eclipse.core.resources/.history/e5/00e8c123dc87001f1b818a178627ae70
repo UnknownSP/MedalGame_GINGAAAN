@@ -1,0 +1,165 @@
+/*
+ * app.c
+ *
+ *  Created on: Mar 11, 2023
+ *      Author: UnknownSP
+ */
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+#include "app.h"
+
+//初期化
+int appInit(void){
+	D_CAN_SetReceiveAddress(8,9,10,11);
+	for(int i=0; i<8; i++){
+		for(int j=0; j<4; j++){
+			rcvData[j][i] = 0;
+			sndData[j][i] = 0;
+		}
+	}
+	return 0;
+}
+
+int appTask(void){
+	static int errorHandle = 0;
+	static uint32_t recent_System_counter = 0;
+	static uint32_t sndTime = 0;
+	static bool _userButton = false;
+
+	//CANでエンコーダの値を送信
+	static int sendLength = 8;
+	static int receiveLength = 8;
+
+	static int testSendData = 0;
+	static int count1 = 0;
+	static int idCount = 8;
+	static int ownIdCount = 0;
+
+	static bool _StepM = false;
+
+	for(int i=0; i<4; i++){
+		sndData[i][0] = testSendData;
+		sndData[i][1] = testSendData;
+		sndData[i][2] = testSendData;
+		sndData[i][3] = testSendData;
+		sndData[i][4] = testSendData;
+		sndData[i][5] = testSendData;
+		sndData[i][6] = testSendData;
+		sndData[i][7] = testSendData;
+		uint8_t dataSum = 0;
+		for(int j=0; j<sendLength-1; j++){
+			dataSum += sndData[i][j];
+		}
+		int checkSum = 256 - (int)dataSum;
+		//sndData[i][sendLength-1] = (uint8_t)checkSum;
+	}
+
+	sndTime += G_System_counter - recent_System_counter;
+	recent_System_counter = G_System_counter;
+	//CAN送信タイミングの場合送信
+	if(sndTime >= CAN_SEND_INTERVAL){
+
+		if(IO_READ_USERBUTTON()){
+			if(_StepM){
+				_StepM = false;
+				IO_SET_STEP();
+			}else{
+				_StepM = true;
+				IO_RESET_STEP();
+			}
+		}else{
+			IO_RESET_STEP();
+		}
+		/*
+		errorHandle = D_CAN_Transmit(ownIdCount,sndData[0],sendLength);
+		sndTime = 0;
+		count1++;
+		if(count1 >= 10){
+			count1 = 0;
+			ownIdCount++;
+		}
+		if(ownIdCount >= 1024){
+			ownIdCount = 0;
+			idCount += 4;
+			D_CAN_SetReceiveAddress(idCount,idCount+1,idCount+2,idCount+3);
+		}
+		*/
+		/*
+		if(testSendData >= 256){
+			testSendData = 0;
+			ownIdCount++;
+		}
+		*/
+	}
+	//CAN受信処理
+	D_CAN_Receive(CAN_MECH1_ADDRESS,rcvData[0],receiveLength);
+
+	/*
+	for(int i=0; i<4; i++){
+		sndData[i][3] = allHoldPocket;
+	}
+	*/
+
+	//D_Mess_printf("%d\n", G_System_counter);
+	//D_PWM_Set(1,100);
+	//D_PWM_Set(2,100);
+	//IO_SET_BLDC2_DIR();
+	if(IO_READ_USERBUTTON()){
+		IO_SET_USERLED();
+		if(_userButton){
+			_userButton = false;
+			testSendData += 1;
+		}
+		//IO_SET_BLDC1_ENA();
+		//IO_SET_BLDC2_ENA();
+		//D_PWM_Set(BLDC1,50);
+		//D_PWM_Set(BLDC2,50);
+		//D_PWM_Set(BLDC3,300);
+		//IO_SET_JP_LED();
+		//Lottery_1st2nd_SetSpeed(500);
+		//Lottery_3rd_SetSpeed(800);
+		//Lottery_JP_SetSpeed(300,0);
+		//Lottery_JP_SetSpeed(JPC_MAX_SPEED,0);
+
+		//IO_SET_ROOMLIGHT();
+		//JP_Lift_Down();
+	}else{
+		_userButton = true;
+		IO_RESET_USERLED();
+		//IO_RESET_BLDC1_ENA();
+		//IO_RESET_BLDC2_ENA();
+		//IO_RESET_BLDC3_ENA();
+		//D_PWM_Set(BLDC1,300);
+		//D_PWM_Set(BLDC2,3000);
+		//D_PWM_Set(BLDC3,3500);
+		//JP_Lift_Up();
+	}
+
+	//デバッグ用
+	int16_t debug_bits = 0;
+	debug_bits &= 0;
+	debug_bits |= ((int)IO_READ_1ST_HOME() << 5);
+	debug_bits |= ((int)IO_READ_1ST_ENC() << 4);
+	debug_bits |= ((int)IO_READ_2ND_HOME() << 3);
+	debug_bits |= ((int)IO_READ_2ND_ENC() << 2);
+	debug_bits |= ((int)IO_READ_3RD_HOME() << 1);
+	debug_bits |= ((int)IO_READ_3RD_ENC() << 0);
+	debug_bits |= ((int)IO_READ_JP_HOME() << 13);
+	debug_bits |= ((int)IO_READ_JP_ENC() << 12);
+	debug_bits |= ((int)IO_READ_JP_FRONT() << 11);
+	debug_bits |= ((int)IO_READ_JP_REAR() << 10);
+	debug_bits |= ((int)IO_READ_JP_UPPER() << 9);
+	debug_bits |= ((int)IO_READ_JP_LOWER() << 8);
+	D_Mess_printf("\033[1;1H");
+	//D_Mess_printf("%016b\n", debug_bits);
+	D_Mess_printf("%02d\n", errorHandle);
+	D_Mess_printf("ownId : %02d\n", ownIdCount);
+	D_Mess_printf("sndId : %02d\n", idCount);
+	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", sndData[0][0],sndData[0][1],sndData[0][2],sndData[0][3],sndData[0][4],sndData[0][5],sndData[0][6],sndData[0][7]);
+	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", rcvData[0][0],rcvData[0][1],rcvData[0][2],rcvData[0][3],rcvData[0][4],rcvData[0][5],rcvData[0][6],rcvData[0][7]);
+
+	return 0;
+}
+
