@@ -1165,3 +1165,356 @@ Finished building: GINGAAAN_TEST.bin
  
 Finished building: GINGAAAN_TEST.list
  
+20:11:02 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:45:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   45 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:41:13: warning: unused variable 'idCount' [-Wunused-variable]
+   41 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:41:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:45:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   45 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:201:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  201 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+Finished building: GINGAAAN_TEST.bin
+ 
+   text	   data	    bss	    dec	    hex	filename
+  28612	     44	   3604	  32260	   7e04	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:15:07 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:46:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:42:13: warning: unused variable 'idCount' [-Wunused-variable]
+   42 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c: In function 'SM_CalSpeedFunc2':
+../Core/Src/app.c:254:22: error: called object 'x' is not a function or function pointer
+  254 |  double y = -2.0 * x*x(x*x-1.0) + 0.5;
+      |                      ^
+../Core/Src/app.c:250:9: note: declared here
+  250 |  double x = ((double)nowPos-stepHalf) / stepHalf;
+      |         ^
+At top level:
+../Core/Src/app.c:42:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   42 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:46:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:216:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  216 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:202:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  202 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:37: Core/Src/app.o] Error 1
+"make -j3 all" terminated with exit code 2. Build might be incomplete.
+20:15:33 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:46:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:42:13: warning: unused variable 'idCount' [-Wunused-variable]
+   42 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:42:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:46:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:216:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  216 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:202:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  202 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  28708	     44	   3604	  32356	   7e64	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:16:23 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:46:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:42:13: warning: unused variable 'idCount' [-Wunused-variable]
+   42 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:42:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:46:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:216:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  216 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:202:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  202 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  28708	     44	   3604	  32356	   7e64	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:16:59 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:46:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:42:13: warning: unused variable 'idCount' [-Wunused-variable]
+   42 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:42:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:46:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:216:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  216 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:202:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  202 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  28708	     44	   3604	  32356	   7e64	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:19:37 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:46:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:42:13: warning: unused variable 'idCount' [-Wunused-variable]
+   42 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:42:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:46:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:216:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  216 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:202:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  202 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  28708	     44	   3604	  32356	   7e64	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:36:24 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:46:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:42:13: warning: unused variable 'idCount' [-Wunused-variable]
+   42 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:42:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:46:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   46 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:216:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  216 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:202:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  202 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  28748	     44	   3604	  32396	   7e8c	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:44:28 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:47:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   47 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:43:13: warning: unused variable 'idCount' [-Wunused-variable]
+   43 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:43:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:47:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   47 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:249:12: warning: 'SM_CalSpeedFunc2' defined but not used [-Wunused-function]
+  249 | static int SM_CalSpeedFunc2(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:217:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  217 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:203:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  203 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  34384	    148	   3604	  38136	   94f8	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:45:30 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:47:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   47 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:43:13: warning: unused variable 'idCount' [-Wunused-variable]
+   43 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:43:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:47:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   47 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:249:12: warning: 'SM_CalSpeedFunc2' defined but not used [-Wunused-function]
+  249 | static int SM_CalSpeedFunc2(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:217:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  217 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:203:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  203 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  34384	    148	   3604	  38136	   94f8	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 
+20:46:21 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:47:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   47 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:43:13: warning: unused variable 'idCount' [-Wunused-variable]
+   43 |  static int idCount = 8;
+      |             ^~~~~~~
+At top level:
+../Core/Src/app.c:43:13: warning: 'idCount' defined but not used [-Wunused-variable]
+../Core/Src/app.c:47:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   47 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:249:12: warning: 'SM_CalSpeedFunc2' defined but not used [-Wunused-function]
+  249 | static int SM_CalSpeedFunc2(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:217:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  217 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:203:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  203 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_TEST.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_TEST/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_TEST.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_TEST.elf
+ 
+arm-none-eabi-size   GINGAAAN_TEST.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
+   text	   data	    bss	    dec	    hex	filename
+  34392	    148	   3604	  38144	   9500	GINGAAAN_TEST.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_TEST.bin
+ 
+Finished building: GINGAAAN_TEST.list
+ 

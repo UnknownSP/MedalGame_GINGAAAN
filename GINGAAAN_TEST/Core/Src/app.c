@@ -11,7 +11,9 @@
 #include "app.h"
 
 static int SM_CalSpeed(int targetSpeed);
-static int SM_CalSpeedFunc(int nowPos, int minSpeed, int maxSpeed);
+static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed);
+static int SM_CalSpeedFunc2(int nowPos, int minSpeed, int maxSpeed);
+static int SM_CalSpeedFunc3(int nowPos, int minSpeed, int maxSpeed);
 static int SM1st_SetSpeed(int speed, int dir);
 //初期化
 int appInit(void){
@@ -126,7 +128,7 @@ int appTask(void){
 
 	static int step = 0;
 	//speed = SM_CalSpeed(StepSpeed[(int)(step / 100)]);
-	speed = SM_CalSpeedFunc(step,40,90);
+	speed = SM_CalSpeedFunc3(step,10,90);
 	step = SM1st_SetSpeed(speed,1);
 
 
@@ -212,15 +214,80 @@ static int SM_CalSpeed(int targetSpeed){
 	return nowSpeed;
 }
 
-static int SM_CalSpeedFunc(int nowPos, int minSpeed, int maxSpeed){
+static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
 	double stepHalf = SM_STEPCOUNT / 2.0;
 	double x = ((double)nowPos-stepHalf) / stepHalf;
 	if (x > 1.0) x = 1.0;
 	if (x < -1.0) x = -1.0;
 	double y = -x*x + 1.0;
 	double edgeVal = 0.93;
-	double offsetSpeed = 15;
-	double stopTime = 1500;
+	double offsetSpeed = 1;
+	double stopTime = 1000;
+	static bool _stop = false;
+	static bool _stopEna = true;
+	static int stopCount = 0;
+	if (_stopEna && (IO_READ_SM_R() || IO_READ_SM_L())){
+		_stopEna = false;
+		_stop = true;
+	}
+	if(_stop){
+		stopCount++;
+		if(stopCount >= stopTime){
+			_stop = false;
+			stopCount = 0;
+		}else{
+			return 0;
+		}
+	}
+	if (x >= -0.5 && x <= 0.5) _stopEna = true;
+	if (x <= -edgeVal || x >= edgeVal){
+		return ((1.0 - fabs(x)) / (1.0 - edgeVal)) * (minSpeed - offsetSpeed) + offsetSpeed;
+	}
+	return minSpeed + (int)((double)(maxSpeed-minSpeed) * y);
+}
+
+static int SM_CalSpeedFunc2(int nowPos, int minSpeed, int maxSpeed){
+	double stepHalf = SM_STEPCOUNT / 2.0;
+	double x = ((double)nowPos-stepHalf) / stepHalf;
+	x /= 0.9;
+	if (x > 1.0) x = 1.0;
+	if (x < -1.0) x = -1.0;
+	double y = -2.0 * x*x*x*x * (x*x-1.0) + 0.7;
+	double edgeVal = 0.98;
+	double offsetSpeed = 1;
+	double stopTime = 500;
+	static bool _stop = false;
+	static bool _stopEna = true;
+	static int stopCount = 0;
+	if (_stopEna && (IO_READ_SM_R() || IO_READ_SM_L())){
+		_stopEna = false;
+		_stop = true;
+	}
+	if(_stop){
+		stopCount++;
+		if(stopCount >= stopTime){
+			_stop = false;
+			stopCount = 0;
+		}else{
+			return 0;
+		}
+	}
+	if (x >= -0.5 && x <= 0.5) _stopEna = true;
+	if (x <= -edgeVal || x >= edgeVal){
+		return ((1.0 - fabs(x)) / (1.0 - edgeVal)) * (minSpeed - offsetSpeed) + offsetSpeed;
+	}
+	return minSpeed + (int)((double)(maxSpeed-minSpeed) * y);
+}
+
+static int SM_CalSpeedFunc3(int nowPos, int minSpeed, int maxSpeed){
+	double stepHalf = SM_STEPCOUNT / 2.0;
+	double x = ((double)nowPos-stepHalf) / stepHalf;
+	if (x > 1.0) x = 1.0;
+	if (x < -1.0) x = -1.0;
+	double y = -0.22 * cos(x/0.15)*exp(x*x) + 0.6;
+	double edgeVal = 0.98;
+	double offsetSpeed = 1;
+	double stopTime = 500;
 	static bool _stop = false;
 	static bool _stopEna = true;
 	static int stopCount = 0;

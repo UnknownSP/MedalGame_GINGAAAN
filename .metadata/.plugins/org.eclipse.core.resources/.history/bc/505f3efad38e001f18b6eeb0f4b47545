@@ -1,0 +1,294 @@
+/*
+ * app.c
+ *
+ *  Created on: Mar 11, 2023
+ *      Author: UnknownSP
+ */
+
+#include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
+#include "app.h"
+
+static int SM_CalSpeed(int targetSpeed);
+static int SM_CalSpeedFunc(int nowPos, int minSpeed, int maxSpeed);
+static int SM1st_SetSpeed(int speed, int dir);
+//初期化
+int appInit(void){
+	//D_CAN_SetReceiveAddress(8,9,10,11);
+	D_CAN_SetReceiveAddressAll();
+	for(int i=0; i<8; i++){
+		for(int j=0; j<4; j++){
+			rcvData[j][i] = 0;
+			sndData[j][i] = 0;
+		}
+	}
+	return 0;
+}
+
+int appTask(void){
+	static int errorHandle = 0;
+	static uint32_t recent_System_counter = 0;
+	static uint32_t sndTime = 0;
+	static bool _userButton = false;
+
+	//CANでエンコーダの値を送信
+	static int sendLength = 8;
+	static int receiveLength = 8;
+
+	static int testSendData = 0;
+	static int count1 = 0;
+	static int idCount = 8;
+	static int ownIdCount = 0;
+
+	static bool _StepEna = false;
+	static uint8_t StepSpeed[19] = {
+		//66,73,79,80,83,85,88,91,94, 96, 95,94,93,91,88,84,79,73,66
+		66,73,79,80,83,85,88,91,94, 96, 94,91,88,85,83,80,79,73,66
+	};
+
+	for(int i=0; i<4; i++){
+		sndData[i][0] = testSendData;
+		sndData[i][1] = testSendData;
+		sndData[i][2] = testSendData;
+		sndData[i][3] = testSendData;
+		sndData[i][4] = testSendData;
+		sndData[i][5] = testSendData;
+		sndData[i][6] = testSendData;
+		sndData[i][7] = testSendData;
+		uint8_t dataSum = 0;
+		for(int j=0; j<sendLength-1; j++){
+			dataSum += sndData[i][j];
+		}
+		int checkSum = 256 - (int)dataSum;
+		sndData[i][sendLength-1] = (uint8_t)checkSum;
+	}
+
+	//SMsndTime += G_System_MicroCounter - recent_System_counter;
+	sndTime += G_System_MicroCounter - recent_System_counter;
+	recent_System_counter = G_System_MicroCounter;
+	//CAN送信タイミングの場合送信
+	if(sndTime >= CAN_SEND_INTERVAL){
+		//errorHandle = D_CAN_Transmit(ownIdCount,sndData[0],sendLength);
+		sndTime = 0;
+		count1++;
+		if(count1 >= 1 && errorHandle == 0){
+			count1 = 0;
+			testSendData++;
+		}
+		if(testSendData >= 256 && errorHandle == 0){
+			testSendData = 0;
+			ownIdCount++;
+		}
+		/*
+		if(ownIdCount >= 1024){
+			ownIdCount = 0;
+			idCount += 4;
+			D_CAN_SetReceiveAddress(idCount,idCount+1,idCount+2,idCount+3);
+		}
+		*/
+		/*
+		if(testSendData >= 256){
+			testSendData = 0;
+			ownIdCount++;
+		}
+		*/
+	}
+	//CAN受信処理
+	D_CAN_Receive(0,rcvData[0],receiveLength);
+	D_CAN_Receive(1,rcvData[1],receiveLength);
+
+	/*
+	for(int i=0; i<4; i++){
+		sndData[i][3] = allHoldPocket;
+	}
+	*/
+
+	static int upCount = 0;
+	static int speed = 70;
+	static int speedCoeff = 1;
+	static bool _ChangeSpeedCoeff = false;
+	upCount++;
+	if(upCount >= 200){
+		upCount = 0;
+		speed += speedCoeff;
+	}
+	if(IO_READ_SM_R() || IO_READ_SM_L()){
+		_ChangeSpeedCoeff = true;
+		speedCoeff = 1;
+	}
+	if(IO_READ_SM_C() && _ChangeSpeedCoeff){
+		_ChangeSpeedCoeff = false;
+		speedCoeff = -1;
+	}
+	if(speed >= 90) speed = 90;
+	if(speed < 70) speed = 70;
+
+	static int step = 0;
+	//speed = SM_CalSpeed(StepSpeed[(int)(step / 100)]);
+	speed = SM_CalSpeedFunc(step,40,90);
+	step = SM1st_SetSpeed(speed,1);
+
+
+	//D_Mess_printf("%d\n", G_System_counter);
+	//D_PWM_Set(1,100);
+	//D_PWM_Set(2,100);
+	//IO_SET_BLDC2_DIR();
+	if(IO_READ_USERBUTTON()){
+		IO_SET_USERLED();
+		if(_userButton){
+			_userButton = false;
+			testSendData += 1;
+			if(_StepEna){
+				IO_SET_ENA();
+				_StepEna = false;
+			}else{
+				IO_RESET_ENA();
+				_StepEna = true;
+			}
+		}
+		//IO_SET_BLDC1_ENA();
+		//IO_SET_BLDC2_ENA();
+		//D_PWM_Set(BLDC1,50);
+		//D_PWM_Set(BLDC2,50);
+		//D_PWM_Set(BLDC3,300);
+		//IO_SET_JP_LED();
+		//Lottery_1st2nd_SetSpeed(500);
+		//Lottery_3rd_SetSpeed(800);
+		//Lottery_JP_SetSpeed(300,0);
+		//Lottery_JP_SetSpeed(JPC_MAX_SPEED,0);
+
+		//IO_SET_ROOMLIGHT();
+		//JP_Lift_Down();
+	}else{
+		_userButton = true;
+		IO_RESET_USERLED();
+		//IO_RESET_BLDC1_ENA();
+		//IO_RESET_BLDC2_ENA();
+		//IO_RESET_BLDC3_ENA();
+		//D_PWM_Set(BLDC1,300);
+		//D_PWM_Set(BLDC2,3000);
+		//D_PWM_Set(BLDC3,3500);
+		//JP_Lift_Up();
+	}
+
+	for(int i=0; i<8; i++){
+		if(rcvData[0][i] != 0) rcvDataJudge[i] = rcvData[0][i];
+	}
+	//デバッグ用
+	int16_t debug_bits = 0;
+	debug_bits &= 0;
+	debug_bits |= ((int)IO_READ_SM_R() << 2);
+	debug_bits |= ((int)IO_READ_SM_C() << 1);
+	debug_bits |= ((int)IO_READ_SM_L() << 0);
+	/*
+	D_Mess_printf("\033[1;1H");
+	D_Mess_printf("%d\n", G_System_MicroCounter);
+	D_Mess_printf("%03b\n", debug_bits);
+	D_Mess_printf("%02d\n", errorHandle);
+	D_Mess_printf("%010d\n", step);
+	D_Mess_printf("ownId : %02d\n", ownIdCount);
+	D_Mess_printf("sndId : %02d\n", idCount);
+	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", sndData[0][0],sndData[0][1],sndData[0][2],sndData[0][3],sndData[0][4],sndData[0][5],sndData[0][6],sndData[0][7]);
+	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", rcvData[0][0],rcvData[0][1],rcvData[0][2],rcvData[0][3],rcvData[0][4],rcvData[0][5],rcvData[0][6],rcvData[0][7]);
+	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", rcvDataJudge[0],rcvDataJudge[1],rcvDataJudge[2],rcvDataJudge[3],rcvDataJudge[4],rcvDataJudge[5],rcvDataJudge[6],rcvDataJudge[7]);
+	D_Mess_printf("id : %3d, err : %3d\n", rcvData[1][0],rcvData[1][1]);
+	*/
+
+	return 0;
+}
+
+static int SM_CalSpeed(int targetSpeed){
+	static int recentTargetSpeed = 0;
+	static int nowSpeed = 0;
+	static int count = 0;
+	count++;
+	if(count >= 8){
+		count = 0;
+		if (targetSpeed != recentTargetSpeed) nowSpeed = recentTargetSpeed;
+		nowSpeed += (targetSpeed - nowSpeed) > 0 ? 1 : -1;
+	}
+	recentTargetSpeed = targetSpeed;
+	return nowSpeed;
+}
+
+static int SM_CalSpeedFunc(int nowPos, int minSpeed, int maxSpeed){
+	double stepHalf = SM_STEPCOUNT / 2.0;
+	double x = ((double)nowPos-stepHalf) / stepHalf;
+	if (x > 1.0) x = 1.0;
+	if (x < -1.0) x = -1.0;
+	double y = -x*x + 1.0;
+	double edgeVal = 0.93;
+	double offsetSpeed = 15;
+	double stopTime = 1500;
+	static bool _stop = false;
+	static bool _stopEna = true;
+	static int stopCount = 0;
+	if (_stopEna && (IO_READ_SM_R() || IO_READ_SM_L())){
+		_stopEna = false;
+		_stop = true;
+	}
+	if(_stop){
+		stopCount++;
+		if(stopCount >= stopTime){
+			_stop = false;
+			stopCount = 0;
+		}else{
+			return 0;
+		}
+	}
+	if (x >= -0.5 && x <= 0.5) _stopEna = true;
+	if (x <= -edgeVal || x >= edgeVal){
+		return ((1.0 - fabs(x)) / (1.0 - edgeVal)) * (minSpeed - offsetSpeed) + offsetSpeed;
+	}
+	return minSpeed + (int)((double)(maxSpeed-minSpeed) * y);
+}
+
+static int SM1st_SetSpeed(int speed, int dir){
+	static uint32_t recent_System_counter = 0;
+	static uint32_t SMsendTime = 0;
+	static bool _StepM = false;
+	static bool _StepDir = false;
+	static uint32_t stepCount = 0;
+	if(speed >= 100) speed = 100;
+	if(speed < 0) speed = 0;
+	SMsendTime += G_System_MicroCounter - recent_System_counter;
+	recent_System_counter = G_System_MicroCounter;
+	if(!_StepM){
+		_StepM = true;
+		IO_RESET_STEP();
+		return stepCount;
+	}
+	if (speed == 0) return stepCount;
+	if(SMsendTime >= SM_SEND_INTERVAL + (100 - speed)){
+		SMsendTime = 0;
+		stepCount++;
+		if(_StepM){
+			_StepM = false;
+			IO_SET_STEP();
+		}
+		/*else{
+			_StepM = true;
+			IO_RESET_STEP();
+		}*/
+		if(_StepDir){
+			if(IO_READ_SM_L()){
+				IO_RESET_DIR();
+				_StepDir = false;
+				stepCount = 0;
+			}else{
+				IO_SET_DIR();
+			}
+		}else{
+			if(IO_READ_SM_R()){
+				IO_SET_DIR();
+				_StepDir = true;
+				stepCount = 0;
+			}else{
+				IO_RESET_DIR();
+			}
+		}
+	}
+	return stepCount;
+}
+
