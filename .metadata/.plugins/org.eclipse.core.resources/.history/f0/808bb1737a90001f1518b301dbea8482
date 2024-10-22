@@ -1,0 +1,30 @@
+/*
+ * DeviceController.h
+ *
+ *  Created on: Mar 7, 2024
+ *      Author: UnknownSP
+ */
+
+#ifndef DEVICECONTROLLER_INC_DEVICECONTROLLER_H_
+#define DEVICECONTROLLER_INC_DEVICECONTROLLER_H_
+
+#include "main.h"
+
+int D_Slider_Send(uint8_t* data, int length);
+int D_Slider_Receive(uint8_t* data, int length);
+
+bool D_Slider_CheckSum(uint8_t* data, int length);
+void D_Slider_GetTouch(bool* setData);
+void D_Slider_SetColorData(uint8_t setColorTouch[][3], uint8_t setColorBar[][3]);
+
+void D_Slider_TransitionCompletedCallBack();
+void D_Slider_ReceptionCompletedCallBack();
+
+void D_Slider_SystickUpdate();
+
+#define FIRSTBYTE 224
+#define ADDRESS 1
+#define COLORSEND_SEQNUM 1
+#define SENSORGET_SEQNUM 2
+
+#endif /* DEVICECONTROLLER_INC_DEVICECONTROLLER_H_ */

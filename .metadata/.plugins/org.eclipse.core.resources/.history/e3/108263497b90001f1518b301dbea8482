@@ -1,0 +1,159 @@
+/*
+ * DeviceController.c
+ *
+ *  Created on: Mar 7, 2024
+ *      Author: UnknownSP
+ */
+#include "../Inc/DeviceController.h"
+#include <stdlib.h>
+#include <stdbool.h>
+#include "stm32f4xx_hal.h"
+
+static uint8_t SendData[101] = {0};
+static uint8_t RecvData[100] = {0};
+static uint8_t TouchData[32] = {0};
+static uint8_t TouchSensorThreshold[32] = {50};
+
+static
+volatile bool had_completed_tx = true;
+static
+volatile bool had_completed_rx = true;
+
+static bool _firstSend = false;
+static int receiveFaultCount = 0;
+
+void D_Slider_SystickUpdate(){
+
+	/*
+	if(!_firstSend){
+		_firstSend = true;
+		D_Slider_Start();
+		D_Slider_InitColorData();
+		return;
+	}
+
+	D_Slider_Send((uint8_t*)SendData, 101);
+	if(D_Slider_Receive((uint8_t*)RecvData, 36) == -1){
+		receiveFaultCount++;
+	}else{
+		receiveFaultCount = 0;
+	}
+	if(receiveFaultCount >= 30){
+		D_Slider_Start();
+		receiveFaultCount = 0;
+	}
+	*/
+}
+
+void D_Slider_Start(){
+	static uint8_t data[4];
+	data[0] = 0xff;
+	data[1] = 0x03;
+	data[2] = 0x00;
+	data[3] = 0xfe;
+	had_completed_tx = true;
+	had_completed_rx = true;
+	D_Slider_Send((uint8_t*)data, 4);
+}
+
+int D_Slider_Send(uint8_t* data, int length){
+	if(!had_completed_tx){
+		return -1;
+	}
+	HAL_UART_Transmit_DMA(&huart1, (uint8_t*)data, length);
+	had_completed_tx = false;
+	return 0;
+}
+
+int D_Slider_Receive(uint8_t* data, int length){
+	if(!had_completed_rx){
+		return -1;
+	}
+	HAL_UART_Receive_DMA(&huart1, (uint8_t*)data, length);
+	had_completed_rx = false;
+	return 0;
+}
+
+bool D_Slider_CheckSum(uint8_t* data, int length){
+	uint8_t sum = 0;
+	for(int i=0; i<length; i++){
+		sum += data[i];
+	}
+	if(sum == 0){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+void D_Slider_SetThreshold(uint8_t* thresholdData){
+	for(int i=0; i<32; i++){
+		TouchSensorThreshold[i] = thresholdData[i];
+	}
+}
+
+void D_Slider_GetTouch(bool* returnData){
+	for(int i=0; i<32; i++){
+		if(TouchData[i] >= TouchSensorThreshold[i]){
+			returnData[i] = true;
+		}else{
+			returnData[i] = false;
+		}
+	}
+}
+
+void D_Slider_SetColorData(bool setColorR[][3], bool setColorL[][3]){
+	SendData[0] = FIRSTBYTE;
+	SendData[1] = ADDRESS;
+	SendData[2] = COLORSEND_SEQNUM;
+	SendData[3] = COLORSEND_DATANUM;
+	SendData[4] = COLORSEND_CMD;
+	for(int i=1; i<16; i++){
+
+	}
+
+	uint8_t dataSum = 0;
+	for(int i=0; i<100; i++){
+		dataSum += SendData[i];
+	}
+	int checkSum = 256 - (int)dataSum;
+	SendData[100] = (uint8_t)checkSum;
+}
+
+void D_Slider_InitColorData(){
+	SendData[0] = 0xff;
+	SendData[1] = 0x02;
+	SendData[2] = 0x61;
+	SendData[3] = 0x3f;
+	for(int i=0; i<16; i++){
+		SendData[i*6 + 4] = 254;
+		SendData[i*6 + 5] = 254;
+		SendData[i*6 + 6] = 254;
+		SendData[i*6 + 7] = 254;
+		SendData[i*6 + 8] = 254;
+		SendData[i*6 + 9] = 254;
+	}
+	SendData[97] = 0x00;
+	SendData[98] = 0x00;
+	SendData[99] = 0x00;
+	uint8_t dataSum = 0;
+	for(int i=0; i<100; i++){
+		dataSum += SendData[i];
+	}
+	int checkSum = 256 - (int)dataSum;
+	SendData[100] = (uint8_t)checkSum;
+}
+
+void D_Slider_TransitionCompletedCallBack(){
+	had_completed_tx = true;
+}
+
+void D_Slider_ReceptionCompletedCallBack(){
+	had_completed_rx = true;
+	if(D_Slider_CheckSum((uint8_t*)RecvData,36) && RecvData[0] != 0){
+		for(int i=0; i<32; i++){
+			TouchData[i] = RecvData[i+3];
+		}
+	}
+	//D_USBHID_SetSendData_Touch(TouchData);
+}

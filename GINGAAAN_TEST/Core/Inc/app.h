@@ -19,7 +19,7 @@ static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
 static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
 static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
 
-#define CAN_SEND_INTERVAL 200
+#define CAN_SEND_INTERVAL 600
 #define SM_SEND_INTERVAL 8
 #define SM_STEPCOUNT 950
 

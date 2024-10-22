@@ -41,7 +41,7 @@ int appTask(void){
 	static int testSendData = 0;
 	static int count1 = 0;
 	static int idCount = 8;
-	static int ownIdCount = 0;
+	static int ownIdCount = 200;
 
 	static bool _StepEna = false;
 	static uint8_t StepSpeed[19] = {
@@ -50,13 +50,13 @@ int appTask(void){
 	};
 
 	for(int i=0; i<4; i++){
-		sndData[i][0] = testSendData;
+		sndData[i][0] = 255-testSendData;
 		sndData[i][1] = testSendData;
-		sndData[i][2] = testSendData;
+		sndData[i][2] = 255-testSendData;
 		sndData[i][3] = testSendData;
-		sndData[i][4] = testSendData;
+		sndData[i][4] = 255-testSendData;
 		sndData[i][5] = testSendData;
-		sndData[i][6] = testSendData;
+		sndData[i][6] = 255-testSendData;
 		sndData[i][7] = testSendData;
 		uint8_t dataSum = 0;
 		for(int j=0; j<sendLength-1; j++){
@@ -71,7 +71,7 @@ int appTask(void){
 	recent_System_counter = G_System_MicroCounter;
 	//CAN送信タイミングの場合送信
 	if(sndTime >= CAN_SEND_INTERVAL){
-		//errorHandle = D_CAN_Transmit(ownIdCount,sndData[0],sendLength);
+		errorHandle = D_CAN_Transmit(ownIdCount,sndData[0],sendLength);
 		sndTime = 0;
 		count1++;
 		if(count1 >= 1 && errorHandle == 0){
@@ -183,7 +183,6 @@ int appTask(void){
 	debug_bits |= ((int)IO_READ_SM_R() << 2);
 	debug_bits |= ((int)IO_READ_SM_C() << 1);
 	debug_bits |= ((int)IO_READ_SM_L() << 0);
-	/*
 	D_Mess_printf("\033[1;1H");
 	D_Mess_printf("%d\n", G_System_MicroCounter);
 	D_Mess_printf("%03b\n", debug_bits);
@@ -195,7 +194,6 @@ int appTask(void){
 	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", rcvData[0][0],rcvData[0][1],rcvData[0][2],rcvData[0][3],rcvData[0][4],rcvData[0][5],rcvData[0][6],rcvData[0][7]);
 	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", rcvDataJudge[0],rcvDataJudge[1],rcvDataJudge[2],rcvDataJudge[3],rcvDataJudge[4],rcvDataJudge[5],rcvDataJudge[6],rcvDataJudge[7]);
 	D_Mess_printf("id : %3d, err : %3d\n", rcvData[1][0],rcvData[1][1]);
-	*/
 
 	return 0;
 }

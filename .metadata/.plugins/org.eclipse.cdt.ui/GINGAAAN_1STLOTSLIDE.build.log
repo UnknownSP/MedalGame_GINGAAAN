@@ -1,0 +1,65 @@
+00:38:56 **** Incremental Build of configuration Debug for project GINGAAAN_1STLOTSLIDE ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/DeviceController/Src/DeviceController.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/DeviceController/Src/DeviceController.d" -MT"Drivers/DeviceController/Src/DeviceController.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/DeviceController/Src/DeviceController.o"
+../Drivers/DeviceController/Src/DeviceController.c: In function 'D_Slider_SystickUpdate':
+../Drivers/DeviceController/Src/DeviceController.c:42:3: warning: implicit declaration of function 'D_Slider_Start'; did you mean 'D_Slider_Send'? [-Wimplicit-function-declaration]
+   42 |   D_Slider_Start();
+      |   ^~~~~~~~~~~~~~
+      |   D_Slider_Send
+../Drivers/DeviceController/Src/DeviceController.c: At top level:
+../Drivers/DeviceController/Src/DeviceController.c:77:6: warning: conflicting types for 'D_Slider_Start'
+   77 | void D_Slider_Start(){
+      |      ^~~~~~~~~~~~~~
+../Drivers/DeviceController/Src/DeviceController.c:42:3: note: previous implicit declaration of 'D_Slider_Start' was here
+   42 |   D_Slider_Start();
+      |   ^~~~~~~~~~~~~~
+../Drivers/DeviceController/Src/DeviceController.c:27:12: warning: 'receiveFaultCount' defined but not used [-Wunused-variable]
+   27 | static int receiveFaultCount = 0;
+      |            ^~~~~~~~~~~~~~~~~
+In file included from ../Core/Inc/main.h:36,
+                 from ../Drivers/DeviceController/Src/../Inc/DeviceController.h:11,
+                 from ../Drivers/DeviceController/Src/DeviceController.c:7:
+../Core/Inc/app.h:31:13: warning: 'SliderLEDDataL' defined but not used [-Wunused-variable]
+   31 | static bool SliderLEDDataL[5][3] = {{false}};
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/app.h:30:13: warning: 'SliderLEDDataR' defined but not used [-Wunused-variable]
+   30 | static bool SliderLEDDataR[5][3] = {{false}};
+      |             ^~~~~~~~~~~~~~
+../Core/Inc/app.h:28:16: warning: 'SliderBarLEDData' defined but not used [-Wunused-variable]
+   28 | static uint8_t SliderBarLEDData[16][3] = {{0}}; //16はない
+      |                ^~~~~~~~~~~~~~~~
+../Core/Inc/app.h:27:16: warning: 'SliderLEDData' defined but not used [-Wunused-variable]
+   27 | static uint8_t SliderLEDData[16][3] = {{0}};
+      |                ^~~~~~~~~~~~~
+../Core/Inc/app.h:26:16: warning: 'TouchThreshold' defined but not used [-Wunused-variable]
+   26 | static uint8_t TouchThreshold[32] = {0};
+      |                ^~~~~~~~~~~~~~
+../Core/Inc/app.h:25:13: warning: 'SideSegment' defined but not used [-Wunused-variable]
+   25 | static bool SideSegment[6] = {false};
+      |             ^~~~~~~~~~~
+../Core/Inc/app.h:24:13: warning: 'TouchSegment' defined but not used [-Wunused-variable]
+   24 | static bool TouchSegment[32] = {false};
+      |             ^~~~~~~~~~~~
+../Core/Inc/app.h:17:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   17 | static uint8_t sndData[8] = {0}; //CAN送信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:16:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   16 | static uint8_t rcvData[8] = {0}; //CAN受信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_1STLOTSLIDE.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOTSLIDE/STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_1STLOTSLIDE.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_1STLOTSLIDE.elf
+ 
+arm-none-eabi-size   GINGAAAN_1STLOTSLIDE.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_1STLOTSLIDE.elf  > "GINGAAAN_1STLOTSLIDE.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_1STLOTSLIDE.elf  "GINGAAAN_1STLOTSLIDE.bin"
+   text	   data	    bss	    dec	    hex	filename
+  35288	    352	   5856	  41496	   a218	GINGAAAN_1STLOTSLIDE.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_1STLOTSLIDE.bin
+ 
+Finished building: GINGAAAN_1STLOTSLIDE.list
+ 
+
+00:38:58 Build Finished. 0 errors, 12 warnings. (took 2s.74ms)
+
