@@ -33,7 +33,7 @@ static bool SliderLEDDataL[5][3] = {{false}};
 #define STATION_NUMBER 1
 
 #define CAN_SEND_INTERVAL 10
-#define UART_RECEIVE_INTERVAL 100
+#define UART_RECEIVE_INTERVAL 500
 
 #define CAN_ST1_ADDRESS 0x100
 #define CAN_ST2_ADDRESS 0x200

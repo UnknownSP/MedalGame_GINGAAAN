@@ -46,7 +46,7 @@ int appTask(void){
 	static int retRcv = 0;
 	static int rcvJudge[16] = {};
 
-	static int testCount = 220;
+	static int testCount = 170;
 	static int testCount1 = 0;
 	static int testCount2 = 140;
 	static int testCount3 = 0;
@@ -64,14 +64,31 @@ int appTask(void){
 
 	static uint8_t sum = 0;
 	if(rcvTime >= UART_RECEIVE_INTERVAL){
+		/*
 		static int sendLength = 6;
 		sndData_UART[0] = 0xe0;//testCount1;
 		sndData_UART[1] = 0x01;//testCount1;//testCount2;
-		sndData_UART[2] = testCount1;
+		sndData_UART[2] = testCount;
 		sndData_UART[3] = 1;
 		sndData_UART[4] = 32;
+		*/
 		/*
-		static int sendLength = 10;
+		static int sendLength = 8;
+		sndData_UART[0] = 0xe0;//testCount1;
+		sndData_UART[1] = 0x01;//testCount1;//testCount2;
+		sndData_UART[2] = testCount;
+		sndData_UART[3] = 3;
+		sndData_UART[4] = 225;
+		*/
+		/*
+		static int sendLength = 8;
+		sndData_UART[0] = 0xe0;//testCount1;
+		sndData_UART[1] = 0x01;//testCount1;//testCount2;
+		sndData_UART[2] = testCount;
+		sndData_UART[3] = 3;
+		sndData_UART[4] = 50;
+		*/
+		static int sendLength = 12;
 		sndData_UART[0] = 0xe0;//testCount1;
 		sndData_UART[1] = 0x01;//testCount1;//testCount2;
 		sndData_UART[2] = testCount;
@@ -81,30 +98,31 @@ int appTask(void){
 		int R = testCount & 1;
 		int G = (testCount>>1) & 1;
 		int B = (testCount>>2) & 1;
-		sndData_UART[5] = R * 36 + G * 146 + B * 72;//testCount;//150;//testCount;
-		sndData_UART[6] = R * 73 + G * 36 + B * 146;//testCount;//testCount;//testCount2;
-		sndData_UART[7] = R * 36 + G * 146 + B * 72;//testCount;//testCount2;
-		sndData_UART[8] = R * 73 + G * 36 + B * 146;//testCount;//243;//testCount2;
-		sndData_UART[9] = 255;//testCount2;//testCount1;
-		sndData_UART[10] = 0;//testCount2;
+		sndData_UART[5] = 0;//R * 36 + G * 146 + B * 72;//testCount;//150;//testCount;
+		sndData_UART[6] = 208;//R * 73 + G * 36 + B * 146;//testCount;//testCount;//testCount2;
+		sndData_UART[7] = 223;//R * 36 + G * 146 + B * 72;//testCount;//testCount2;
+		sndData_UART[8] = 0;//R * 73 + G * 36 + B * 146;//testCount;//243;//testCount2;
+		sndData_UART[9] = 208;//testCount2;//testCount1;
+		sndData_UART[10] = 223;//testCount2;
 		sndData_UART[11] = 0;//testCount1;
 		sndData_UART[12] = 0;//testCount2;
 		sndData_UART[13] = 0;//testCount1;
 		sndData_UART[14] = 0;//testCount2;
 		sndData_UART[15] = 0;//testCount1;
-		 */
+
 		uint8_t dataSum = 0;
 		//dataSum += sndData_UART[1];
 		for(int j=1; j<sendLength-1; j++){
-			dataSum += sndData_UART[j];
+			if(j!=6 && j!=9) dataSum += sndData_UART[j];
 		}
+		dataSum += 2;
 
 		//int checkSum = 256 - (int)dataSum;
 		//sndData_UART[2/*sendLength-1*/] = (uint8_t)checkSum - 1;
 		sndData_UART[sendLength-1] = (uint8_t)dataSum;
 
 		//retSnd = D_Slider_Send(sndData_UART,sendLength);
-		//retRcv = D_Slider_Receive(rcvData_UART,10);
+		//retRcv = D_Slider_Receive(rcvData_UART,16);
 		rcvTime = 0;
 
 		/*
@@ -148,14 +166,14 @@ int appTask(void){
 	bool B = ((testCount>>2) & 1) == 1;
 	for(int i=0; i<5; i++){
 		if (D_Slider_GetSensorData(0,i) != 0){
-			SliderLEDDataR[i][0] = false;
+			SliderLEDDataR[i][0] = true;
 			SliderLEDDataR[i][1] = true;
-			SliderLEDDataR[i][2] = false;
+			SliderLEDDataR[i][2] = true;
 		}
 		if (D_Slider_GetSensorData(1,i) != 0){
-			SliderLEDDataL[i][0] = false;
+			SliderLEDDataL[i][0] = true;
 			SliderLEDDataL[i][1] = true;
-			SliderLEDDataL[i][2] = false;
+			SliderLEDDataL[i][2] = true;
 		}
 	}
 	//SliderLEDDataL[3][0] = true;
@@ -165,9 +183,20 @@ int appTask(void){
 	//SliderLEDDataR[3][0] = false;
 	//SliderLEDDataR[3][1] = false;
 	//SliderLEDDataR[3][2] = false;
-	//SliderLEDDataR[4][0] = true;
-	//SliderLEDDataR[4][1] = true;
-	//SliderLEDDataR[4][2] = true;
+	/*
+	SliderLEDDataR[0][0] = testCount1 % 2 == 0;
+	SliderLEDDataR[0][1] = testCount1 % 2 == 0;
+	SliderLEDDataR[0][2] = testCount1 % 2 == 0;
+	SliderLEDDataR[3][0] = testCount1 % 2 == 0;
+	SliderLEDDataR[3][2] = testCount1 % 2 == 0;
+	SliderLEDDataR[2][0] = testCount1 % 2 == 0;
+	SliderLEDDataL[0][0] = testCount1 % 2 == 0;
+	SliderLEDDataL[0][1] = testCount1 % 2 == 0;
+	SliderLEDDataL[0][2] = testCount1 % 2 == 0;
+	SliderLEDDataL[3][0] = testCount1 % 2 == 0;
+	SliderLEDDataL[3][2] = testCount1 % 2 == 0;
+	SliderLEDDataL[2][0] = testCount1 % 2 == 0;
+	*/
 	D_Slider_SetColorData(SliderLEDDataR, SliderLEDDataL);
 
 	/*
@@ -223,6 +252,7 @@ int appTask(void){
 	}
 
 	//D_Slider_GetTouch((bool*)TouchSegment);
+	/*
 	for(int i=0; i<16; i++){
 		SliderLEDData[i][0] = 0;
 		SliderLEDData[i][1] = 0;
@@ -241,6 +271,7 @@ int appTask(void){
 			SliderLEDData[i][2] = 254;
 		}
 	}
+	*/
 	//D_Slider_SetColorData(SliderLEDData, SliderBarLEDData);
 
 	//D_USBHID_SetSendData((bool*)TouchSegment, (bool*)SideSegment);

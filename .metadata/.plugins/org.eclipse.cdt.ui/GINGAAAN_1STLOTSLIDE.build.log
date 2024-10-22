@@ -1,20 +1,20 @@
-00:38:56 **** Incremental Build of configuration Debug for project GINGAAAN_1STLOTSLIDE ****
+03:47:18 **** Incremental Build of configuration Debug for project GINGAAAN_1STLOTSLIDE ****
 make -j3 all 
 arm-none-eabi-gcc "../Drivers/DeviceController/Src/DeviceController.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/DeviceController/Src/DeviceController.d" -MT"Drivers/DeviceController/Src/DeviceController.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/DeviceController/Src/DeviceController.o"
 ../Drivers/DeviceController/Src/DeviceController.c: In function 'D_Slider_SystickUpdate':
-../Drivers/DeviceController/Src/DeviceController.c:42:3: warning: implicit declaration of function 'D_Slider_Start'; did you mean 'D_Slider_Send'? [-Wimplicit-function-declaration]
-   42 |   D_Slider_Start();
+../Drivers/DeviceController/Src/DeviceController.c:45:3: warning: implicit declaration of function 'D_Slider_Start'; did you mean 'D_Slider_Send'? [-Wimplicit-function-declaration]
+   45 |   D_Slider_Start();
       |   ^~~~~~~~~~~~~~
       |   D_Slider_Send
 ../Drivers/DeviceController/Src/DeviceController.c: At top level:
-../Drivers/DeviceController/Src/DeviceController.c:77:6: warning: conflicting types for 'D_Slider_Start'
-   77 | void D_Slider_Start(){
+../Drivers/DeviceController/Src/DeviceController.c:80:6: warning: conflicting types for 'D_Slider_Start'
+   80 | void D_Slider_Start(){
       |      ^~~~~~~~~~~~~~
-../Drivers/DeviceController/Src/DeviceController.c:42:3: note: previous implicit declaration of 'D_Slider_Start' was here
-   42 |   D_Slider_Start();
+../Drivers/DeviceController/Src/DeviceController.c:45:3: note: previous implicit declaration of 'D_Slider_Start' was here
+   45 |   D_Slider_Start();
       |   ^~~~~~~~~~~~~~
-../Drivers/DeviceController/Src/DeviceController.c:27:12: warning: 'receiveFaultCount' defined but not used [-Wunused-variable]
-   27 | static int receiveFaultCount = 0;
+../Drivers/DeviceController/Src/DeviceController.c:30:12: warning: 'receiveFaultCount' defined but not used [-Wunused-variable]
+   30 | static int receiveFaultCount = 0;
       |            ^~~~~~~~~~~~~~~~~
 In file included from ../Core/Inc/main.h:36,
                  from ../Drivers/DeviceController/Src/../Inc/DeviceController.h:11,
@@ -53,7 +53,7 @@ arm-none-eabi-size   GINGAAAN_1STLOTSLIDE.elf
 arm-none-eabi-objdump -h -S  GINGAAAN_1STLOTSLIDE.elf  > "GINGAAAN_1STLOTSLIDE.list"
 arm-none-eabi-objcopy  -O binary  GINGAAAN_1STLOTSLIDE.elf  "GINGAAAN_1STLOTSLIDE.bin"
    text	   data	    bss	    dec	    hex	filename
-  35288	    352	   5856	  41496	   a218	GINGAAAN_1STLOTSLIDE.elf
+  35364	    352	   5784	  41500	   a21c	GINGAAAN_1STLOTSLIDE.elf
 Finished building: default.size.stdout
  
 Finished building: GINGAAAN_1STLOTSLIDE.bin
@@ -61,5 +61,5 @@ Finished building: GINGAAAN_1STLOTSLIDE.bin
 Finished building: GINGAAAN_1STLOTSLIDE.list
  
 
-00:38:58 Build Finished. 0 errors, 12 warnings. (took 2s.74ms)
+03:47:19 Build Finished. 0 errors, 12 warnings. (took 1s.724ms)
 

@@ -27,6 +27,8 @@ void D_Slider_SystickUpdate();
 #define SLIDER_SEND_INTERVAL 20
 #define SLIDER_RECEIVE_INTERVAL 10
 
+#define ESCAPE_PACKET 208 //the value after this packet will add 1 value
+
 #define FIRSTBYTE 224
 #define ADDRESS 1
 #define SENSORGET_SEQNUM 1
