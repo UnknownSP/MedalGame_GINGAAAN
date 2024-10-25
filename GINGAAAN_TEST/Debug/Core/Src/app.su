@@ -1,7 +1,8 @@
-app.c:19:5:appInit	16	static
-app.c:31:5:appTask	72	static
-app.c:201:12:SM_CalSpeed	16	static
-app.c:215:12:SM_CalSpeedFunc1	96	static
-app.c:247:12:SM_CalSpeedFunc2	96	static
-app.c:280:12:SM_CalSpeedFunc3	96	static
-app.c:312:12:SM1st_SetSpeed	16	static
+app.c:23:5:appInit	16	static
+app.c:35:5:appTask	24	static
+app.c:241:12:SM_CalSpeed	16	static
+app.c:255:12:SM_CalSpeedFunc1	96	static
+app.c:287:12:SM_CalSpeedFunc2	96	static
+app.c:320:12:SM_CalSpeedFunc3	96	static
+app.c:352:6:SM1_Set	8	static
+app.c:385:13:SM1st_SetSpeed	16	static

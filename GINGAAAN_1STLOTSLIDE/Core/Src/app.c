@@ -46,9 +46,9 @@ int appTask(void){
 	static int retRcv = 0;
 	static int rcvJudge[16] = {};
 
-	static int testCount = 170;
+	static int testCount = 0;
 	static int testCount1 = 0;
-	static int testCount2 = 140;
+	static int testCount2 = 0;
 	static int testCount3 = 0;
 	static int testCount4 = 0;
 
@@ -64,14 +64,15 @@ int appTask(void){
 
 	static uint8_t sum = 0;
 	if(rcvTime >= UART_RECEIVE_INTERVAL){
-		/*
-		static int sendLength = 6;
+		static int sendLength = 10;
 		sndData_UART[0] = 0xe0;//testCount1;
-		sndData_UART[1] = 0x01;//testCount1;//testCount2;
+		sndData_UART[1] = testCount1;//testCount1;//testCount2;
 		sndData_UART[2] = testCount;
-		sndData_UART[3] = 1;
-		sndData_UART[4] = 32;
-		*/
+		sndData_UART[3] = 5;
+		sndData_UART[4] = testCount1;
+		sndData_UART[5] = 200;
+		sndData_UART[6] = 200;
+		sndData_UART[7] = 200;
 		/*
 		static int sendLength = 8;
 		sndData_UART[0] = 0xe0;//testCount1;
@@ -88,6 +89,7 @@ int appTask(void){
 		sndData_UART[3] = 3;
 		sndData_UART[4] = 50;
 		*/
+		/*
 		static int sendLength = 12;
 		sndData_UART[0] = 0xe0;//testCount1;
 		sndData_UART[1] = 0x01;//testCount1;//testCount2;
@@ -109,13 +111,14 @@ int appTask(void){
 		sndData_UART[13] = 0;//testCount1;
 		sndData_UART[14] = 0;//testCount2;
 		sndData_UART[15] = 0;//testCount1;
+		*/
 
 		uint8_t dataSum = 0;
 		//dataSum += sndData_UART[1];
 		for(int j=1; j<sendLength-1; j++){
-			if(j!=6 && j!=9) dataSum += sndData_UART[j];
+			dataSum += sndData_UART[j];
 		}
-		dataSum += 2;
+		//dataSum += 2;
 
 		//int checkSum = 256 - (int)dataSum;
 		//sndData_UART[2/*sendLength-1*/] = (uint8_t)checkSum - 1;

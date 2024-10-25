@@ -10,14 +10,13 @@
 
 #include "main.h"
 
+void D_Slider_Start(void);
+
 int D_Slider_Send(uint8_t* data, int length);
 int D_Slider_Receive(uint8_t* data, int length);
 
 int D_Slider_GetSensorData(int side, int num);
 void D_Slider_CheckData(uint8_t* data, int length);
-bool D_Slider_CheckSum(uint8_t* data, int length);
-void D_Slider_GetTouch(bool* setData);
-void D_Slider_SetColorData(bool setColorR[][3], bool setColorL[][3]);
 
 void D_Slider_TransitionCompletedCallBack();
 void D_Slider_ReceptionCompletedCallBack();
@@ -40,5 +39,18 @@ void D_Slider_SystickUpdate();
 #define SENSORGET_LENGTH 6
 #define SENSORGET_RECEIVE_LENGTH 10
 #define COLORSEND_LENGTH 10
+
+typedef enum{
+	SL_NORMAL,
+	SL_NORMAL_FLASH,
+	SL_POCKET_IN,
+	SL_POCKET_IN_1,
+	SL_POCKET_IN_2,
+	SL_POCKET_IN_3,
+	SL_POCKET_IN_4,
+	SL_POCKET_IN_5,
+	SL_UP_2ND,
+	SL_UP_3RD,
+}SliderLightingMode;
 
 #endif /* DEVICECONTROLLER_INC_DEVICECONTROLLER_H_ */

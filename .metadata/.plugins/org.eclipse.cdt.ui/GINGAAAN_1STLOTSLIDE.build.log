@@ -1,20 +1,43 @@
-03:47:18 **** Incremental Build of configuration Debug for project GINGAAAN_1STLOTSLIDE ****
+22:59:44 **** Incremental Build of configuration Debug for project GINGAAAN_1STLOTSLIDE ****
 make -j3 all 
 arm-none-eabi-gcc "../Drivers/DeviceController/Src/DeviceController.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F401xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/HID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/DeviceController/Src/DeviceController.d" -MT"Drivers/DeviceController/Src/DeviceController.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/DeviceController/Src/DeviceController.o"
 ../Drivers/DeviceController/Src/DeviceController.c: In function 'D_Slider_SystickUpdate':
-../Drivers/DeviceController/Src/DeviceController.c:45:3: warning: implicit declaration of function 'D_Slider_Start'; did you mean 'D_Slider_Send'? [-Wimplicit-function-declaration]
-   45 |   D_Slider_Start();
-      |   ^~~~~~~~~~~~~~
-      |   D_Slider_Send
+../Drivers/DeviceController/Src/DeviceController.c:68:2: warning: implicit declaration of function 'D_Slider_LightingUpdate'; did you mean 'D_Slider_SystickUpdate'? [-Wimplicit-function-declaration]
+   68 |  D_Slider_LightingUpdate();
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+      |  D_Slider_SystickUpdate
 ../Drivers/DeviceController/Src/DeviceController.c: At top level:
-../Drivers/DeviceController/Src/DeviceController.c:80:6: warning: conflicting types for 'D_Slider_Start'
-   80 | void D_Slider_Start(){
-      |      ^~~~~~~~~~~~~~
-../Drivers/DeviceController/Src/DeviceController.c:45:3: note: previous implicit declaration of 'D_Slider_Start' was here
-   45 |   D_Slider_Start();
-      |   ^~~~~~~~~~~~~~
-../Drivers/DeviceController/Src/DeviceController.c:30:12: warning: 'receiveFaultCount' defined but not used [-Wunused-variable]
-   30 | static int receiveFaultCount = 0;
+../Drivers/DeviceController/Src/DeviceController.c:156:6: warning: conflicting types for 'D_Slider_LightingUpdate'
+  156 | void D_Slider_LightingUpdate(void){
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/DeviceController/Src/DeviceController.c:68:2: note: previous implicit declaration of 'D_Slider_LightingUpdate' was here
+   68 |  D_Slider_LightingUpdate();
+      |  ^~~~~~~~~~~~~~~~~~~~~~~
+../Drivers/DeviceController/Src/DeviceController.c: In function 'D_Slider_LightingUpdate':
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_NORMAL_FLASH' not handled in switch [-Wswitch]
+  159 |  switch(rightLightingMode){
+      |  ^~~~~~
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_POCKET_IN' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_POCKET_IN_1' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_POCKET_IN_2' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_POCKET_IN_3' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_POCKET_IN_4' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_POCKET_IN_5' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_UP_2ND' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:159:2: warning: enumeration value 'SL_UP_3RD' not handled in switch [-Wswitch]
+../Drivers/DeviceController/Src/DeviceController.c:158:14: warning: unused variable 'slideColorL' [-Wunused-variable]
+  158 |  static bool slideColorL[5][3] = {{false}};
+      |              ^~~~~~~~~~~
+../Drivers/DeviceController/Src/DeviceController.c:157:14: warning: unused variable 'slideColorR' [-Wunused-variable]
+  157 |  static bool slideColorR[5][3] = {{false}};
+      |              ^~~~~~~~~~~
+At top level:
+../Drivers/DeviceController/Src/DeviceController.c:157:14: warning: 'slideColorR' defined but not used [-Wunused-variable]
+../Drivers/DeviceController/Src/DeviceController.c:158:14: warning: 'slideColorL' defined but not used [-Wunused-variable]
+  158 |  static bool slideColorL[5][3] = {{false}};
+      |              ^~~~~~~~~~~
+../Drivers/DeviceController/Src/DeviceController.c:28:12: warning: 'receiveFaultCount' defined but not used [-Wunused-variable]
+   28 | static int receiveFaultCount = 0;
       |            ^~~~~~~~~~~~~~~~~
 In file included from ../Core/Inc/main.h:36,
                  from ../Drivers/DeviceController/Src/../Inc/DeviceController.h:11,
@@ -53,7 +76,7 @@ arm-none-eabi-size   GINGAAAN_1STLOTSLIDE.elf
 arm-none-eabi-objdump -h -S  GINGAAAN_1STLOTSLIDE.elf  > "GINGAAAN_1STLOTSLIDE.list"
 arm-none-eabi-objcopy  -O binary  GINGAAAN_1STLOTSLIDE.elf  "GINGAAAN_1STLOTSLIDE.bin"
    text	   data	    bss	    dec	    hex	filename
-  35364	    352	   5784	  41500	   a21c	GINGAAAN_1STLOTSLIDE.elf
+  35144	    344	   5760	  41248	   a120	GINGAAAN_1STLOTSLIDE.elf
 Finished building: default.size.stdout
  
 Finished building: GINGAAAN_1STLOTSLIDE.bin
@@ -61,5 +84,5 @@ Finished building: GINGAAAN_1STLOTSLIDE.bin
 Finished building: GINGAAAN_1STLOTSLIDE.list
  
 
-03:47:19 Build Finished. 0 errors, 12 warnings. (took 1s.724ms)
+22:59:47 Build Finished. 0 errors, 25 warnings. (took 2s.924ms)
 

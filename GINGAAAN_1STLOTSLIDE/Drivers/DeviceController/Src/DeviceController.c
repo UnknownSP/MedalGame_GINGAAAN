@@ -13,8 +13,6 @@ static uint8_t SendData[32] = {0};
 static uint8_t SensorGetSendData[32] = {0};
 static uint8_t AdditionalPacket = 0;
 static uint8_t RecvData[32] = {0};
-static uint8_t TouchData[32] = {0};
-static uint8_t TouchSensorThreshold[32] = {50};
 
 static int SensorCountR[5] = {0};
 static int SensorCountL[5] = {0};
@@ -28,6 +26,11 @@ static bool _send = false;
 
 static bool _firstSend = false;
 static int receiveFaultCount = 0;
+
+static SliderLightingMode rightLightingMode = SL_NORMAL;
+static SliderLightingMode leftLightingMode = SL_NORMAL;
+static uint8_t inPocketR = 0;
+static uint8_t inPocketL = 0;
 
 void D_Slider_SystickUpdate(){
 	static uint32_t recent_System_counter = 0;
@@ -60,10 +63,9 @@ void D_Slider_SystickUpdate(){
 	if(rcvTime >= SLIDER_RECEIVE_INTERVAL){
 		rcvTime = 0;
 		D_Slider_Receive((uint8_t*)RecvData, 10);
-		D_Slider_CheckData((uint8_t*)RecvData, 10);
 	}
 
-
+	D_Slider_LightingUpdate();
 	/*
 	if(D_Slider_Receive((uint8_t*)RecvData, 36) == -1){
 		receiveFaultCount++;
@@ -77,7 +79,7 @@ void D_Slider_SystickUpdate(){
 	*/
 }
 
-void D_Slider_Start(){
+void D_Slider_Start(void){
 	SensorGetSendData[0] = FIRSTBYTE;
 	SensorGetSendData[1] = ADDRESS;
 	SensorGetSendData[2] = SENSORGET_SEQNUM;
@@ -98,6 +100,67 @@ void D_Slider_Start(){
 	had_completed_rx = true;
 	D_Slider_Send((uint8_t*)data, 4);
 	*/
+}
+
+void D_Slider_SetLighting(SliderLightingMode rightType, SliderLightingMode leftType, int pocketR, int pocketL){
+	rightLightingMode = rightType;
+	inPocketR = pocketR;
+	leftLightingMode = leftType;
+	inPocketL = pocketL;
+	/*
+	if(rightType = SL_POCKET_IN){
+		switch(inPocketR){
+		case 1:
+			rightType = SL_POCKET_IN_1;
+			break;
+		case 2:
+			rightType = SL_POCKET_IN_2;
+			break;
+		case 3:
+			rightType = SL_POCKET_IN_3;
+			break;
+		case 4:
+			rightType = SL_POCKET_IN_4;
+			break;
+		case 5:
+			rightType = SL_POCKET_IN_5;
+			break;
+		}
+	}else{
+		rightLightingMode = rightType;
+	}
+	if(leftType = SL_POCKET_IN){
+		switch(inPocketL){
+		case 1:
+			leftType = SL_POCKET_IN_1;
+			break;
+		case 2:
+			leftType = SL_POCKET_IN_2;
+			break;
+		case 3:
+			leftType = SL_POCKET_IN_3;
+			break;
+		case 4:
+			leftType = SL_POCKET_IN_4;
+			break;
+		case 5:
+			leftType = SL_POCKET_IN_5;
+			break;
+		}
+	}else{
+		leftLightingMode = leftType;
+	}
+	*/
+}
+
+void D_Slider_LightingUpdate(void){
+	static bool slideColorR[5][3] = {{false}};
+	static bool slideColorL[5][3] = {{false}};
+	switch(rightLightingMode){
+	case SL_NORMAL:
+
+		break;
+	}
 }
 
 int D_Slider_Send(uint8_t* data, int length){
@@ -139,34 +202,6 @@ void D_Slider_CheckData(uint8_t* data, int length){
 	}
 	for(int i=0; i<5; i++){
 		if(((data[8]>>i) & 1) == 1) SensorCountR[i]++;
-	}
-}
-
-bool D_Slider_CheckSum(uint8_t* data, int length){
-	uint8_t sum = 0;
-	for(int i=0; i<length; i++){
-		sum += data[i];
-	}
-	if(sum == 0){
-		return true;
-	}else{
-		return false;
-	}
-}
-
-void D_Slider_SetThreshold(uint8_t* thresholdData){
-	for(int i=0; i<32; i++){
-		TouchSensorThreshold[i] = thresholdData[i];
-	}
-}
-
-void D_Slider_GetTouch(bool* returnData){
-	for(int i=0; i<32; i++){
-		if(TouchData[i] >= TouchSensorThreshold[i]){
-			returnData[i] = true;
-		}else{
-			returnData[i] = false;
-		}
 	}
 }
 
@@ -246,29 +281,6 @@ void D_Slider_SetColorData(bool setColorR[][3], bool setColorL[][3]){
 	SendData[COLORSEND_LENGTH-1 + AdditionalPacket] = (uint8_t)dataSum;
 }
 
-void D_Slider_InitColorData(){
-	SendData[0] = 0xff;
-	SendData[1] = 0x02;
-	SendData[2] = 0x61;
-	SendData[3] = 0x3f;
-	for(int i=0; i<16; i++){
-		SendData[i*6 + 4] = 254;
-		SendData[i*6 + 5] = 254;
-		SendData[i*6 + 6] = 254;
-		SendData[i*6 + 7] = 254;
-		SendData[i*6 + 8] = 254;
-		SendData[i*6 + 9] = 254;
-	}
-	SendData[97] = 0x00;
-	SendData[98] = 0x00;
-	SendData[99] = 0x00;
-	uint8_t dataSum = 0;
-	for(int i=0; i<100; i++){
-		dataSum += SendData[i];
-	}
-	int checkSum = 256 - (int)dataSum;
-	SendData[100] = (uint8_t)checkSum;
-}
 
 void D_Slider_TransitionCompletedCallBack(){
 	had_completed_tx = true;
@@ -276,10 +288,13 @@ void D_Slider_TransitionCompletedCallBack(){
 
 void D_Slider_ReceptionCompletedCallBack(){
 	had_completed_rx = true;
+	D_Slider_CheckData((uint8_t*)RecvData, 10);
+	/*
 	if(D_Slider_CheckSum((uint8_t*)RecvData,36) && RecvData[0] != 0){
 		for(int i=0; i<32; i++){
 			TouchData[i] = RecvData[i+3];
 		}
 	}
+	*/
 	//D_USBHID_SetSendData_Touch(TouchData);
 }

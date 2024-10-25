@@ -14,7 +14,11 @@ static int SM_CalSpeed(int targetSpeed);
 static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed);
 static int SM_CalSpeedFunc2(int nowPos, int minSpeed, int maxSpeed);
 static int SM_CalSpeedFunc3(int nowPos, int minSpeed, int maxSpeed);
-static int SM1st_SetSpeed(int speed, int dir);
+static void SM1st_SetSpeed(int speed, int dir);
+
+static int SM1_speed = 0;
+static int SM1_stepCount = 0;
+static int SM_SetMaxSpeed = 100;
 //初期化
 int appInit(void){
 	//D_CAN_SetReceiveAddress(8,9,10,11);
@@ -39,6 +43,9 @@ int appTask(void){
 	static int receiveLength = 8;
 
 	static int testSendData = 0;
+	static int testSendData2 = 1;
+	static int testSendData3 = 0;
+	static int testSendData4 = 0;
 	static int count1 = 0;
 	static int idCount = 8;
 	static int ownIdCount = 200;
@@ -49,6 +56,7 @@ int appTask(void){
 		66,73,79,80,83,85,88,91,94, 96, 94,91,88,85,83,80,79,73,66
 	};
 
+	/*
 	for(int i=0; i<4; i++){
 		sndData[i][0] = 255-testSendData;
 		sndData[i][1] = testSendData;
@@ -65,23 +73,48 @@ int appTask(void){
 		int checkSum = 256 - (int)dataSum;
 		sndData[i][sendLength-1] = (uint8_t)checkSum;
 	}
+	*/
 
 	//SMsndTime += G_System_MicroCounter - recent_System_counter;
 	sndTime += G_System_MicroCounter - recent_System_counter;
 	recent_System_counter = G_System_MicroCounter;
 	//CAN送信タイミングの場合送信
 	if(sndTime >= CAN_SEND_INTERVAL){
-		errorHandle = D_CAN_Transmit(ownIdCount,sndData[0],sendLength);
+		sndTime = 0;
+		static int sendLength = 8;
+		sndData[0][0] = testSendData;
+		sndData[0][1] = testSendData2;
+		sndData[0][2] = testSendData2;
+		sndData[0][3] = testSendData2;
+		sndData[0][4] = testSendData2;
+		sndData[0][5] = testSendData2;
+		sndData[0][6] = testSendData2;
+		sndData[0][7] = testSendData2;
+		uint8_t dataSum = 0;
+		for(int j=0; j<sendLength-1; j++){
+			dataSum += sndData[0][j];
+		}
+		//int checkSum = 256 - (int)dataSum;
+		sndData[0][sendLength-1] = (uint8_t)dataSum;
+
+
+		errorHandle = D_CAN_Transmit(0x7ff/*testSendData*/,sndData[0],sendLength);
 		sndTime = 0;
 		count1++;
-		if(count1 >= 1 && errorHandle == 0){
+		if(count1 >= 1 ){//&& errorHandle == 0){
 			count1 = 0;
 			testSendData++;
 		}
-		if(testSendData >= 256 && errorHandle == 0){
+		if(testSendData >= 1000){ //&& errorHandle == 0){
 			testSendData = 0;
+			testSendData2++;
 			ownIdCount++;
 		}
+		if(testSendData2 >= 256 && errorHandle == 0){
+			testSendData2 = 1;
+			testSendData3++;
+		}
+		D_PWM_Set(1,700);
 		/*
 		if(ownIdCount >= 1024){
 			ownIdCount = 0;
@@ -106,6 +139,7 @@ int appTask(void){
 	}
 	*/
 
+	/*
 	static int upCount = 0;
 	static int speed = 70;
 	static int speedCoeff = 1;
@@ -125,11 +159,14 @@ int appTask(void){
 	}
 	if(speed >= 90) speed = 90;
 	if(speed < 70) speed = 70;
+	*/
 
+	static int speed = 0;
 	static int step = 0;
 	//speed = SM_CalSpeed(StepSpeed[(int)(step / 100)]);
-	speed = SM_CalSpeedFunc3(step,10,90);
-	step = SM1st_SetSpeed(speed,1);
+	speed = SM_CalSpeedFunc3(SM1_stepCount,10,90);
+	SM1st_SetSpeed(speed,1);
+	//SM_Set();
 
 
 	//D_Mess_printf("%d\n", G_System_counter);
@@ -184,17 +221,20 @@ int appTask(void){
 	debug_bits |= ((int)IO_READ_SM_C() << 1);
 	debug_bits |= ((int)IO_READ_SM_L() << 0);
 	D_Mess_printf("\033[1;1H");
-	D_Mess_printf("%d\n", G_System_MicroCounter);
+	D_Mess_printf("testSendData : %02d\n", testSendData);
+	//D_Mess_printf("%d\n", G_System_MicroCounter);
 	D_Mess_printf("%03b\n", debug_bits);
+	/*
 	D_Mess_printf("%02d\n", errorHandle);
 	D_Mess_printf("%010d\n", step);
 	D_Mess_printf("ownId : %02d\n", ownIdCount);
+	D_Mess_printf("ownId : %02d\n", testSendData);
 	D_Mess_printf("sndId : %02d\n", idCount);
 	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", sndData[0][0],sndData[0][1],sndData[0][2],sndData[0][3],sndData[0][4],sndData[0][5],sndData[0][6],sndData[0][7]);
 	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", rcvData[0][0],rcvData[0][1],rcvData[0][2],rcvData[0][3],rcvData[0][4],rcvData[0][5],rcvData[0][6],rcvData[0][7]);
 	D_Mess_printf("%3d,%3d,%3d,%3d,%3d,%3d,%3d,%3d\n", rcvDataJudge[0],rcvDataJudge[1],rcvDataJudge[2],rcvDataJudge[3],rcvDataJudge[4],rcvDataJudge[5],rcvDataJudge[6],rcvDataJudge[7]);
 	D_Mess_printf("id : %3d, err : %3d\n", rcvData[1][0],rcvData[1][1]);
-
+	*/
 	return 0;
 }
 
@@ -283,7 +323,7 @@ static int SM_CalSpeedFunc3(int nowPos, int minSpeed, int maxSpeed){
 	if (x > 1.0) x = 1.0;
 	if (x < -1.0) x = -1.0;
 	double y = -0.22 * cos(x/0.15)*exp(x*x) + 0.6;
-	double edgeVal = 0.98;
+	double edgeVal = 0.99;
 	double offsetSpeed = 1;
 	double stopTime = 500;
 	static bool _stop = false;
@@ -309,7 +349,63 @@ static int SM_CalSpeedFunc3(int nowPos, int minSpeed, int maxSpeed){
 	return minSpeed + (int)((double)(maxSpeed-minSpeed) * y);
 }
 
-static int SM1st_SetSpeed(int speed, int dir){
+void SM1_Set(void){
+	static bool _StepM = true;
+	static int counter = 0;
+	counter++;
+	if(!_StepM || SM1_speed == 0){
+		_StepM = true;
+		IO_RESET_STEP();
+		return;
+	}
+	if(counter >= SM_SetMaxSpeed - SM1_speed){
+		counter = 0;
+		SM1_stepCount++;
+		_StepM = false;
+		IO_SET_STEP();
+	}
+	/*
+	static bool _set = false;
+	if(_set){
+		IO_SET_STEP();
+		_set = false;
+	}else{
+		_set = true;
+		IO_RESET_STEP();
+	}
+	*/
+	/*
+	static int step = 0;
+	static int speed = 0;
+	speed = SM_CalSpeedFunc3(step,10,90);
+	step = SM1st_SetSpeed(speed,1);
+	*/
+}
+
+static void SM1st_SetSpeed(int speed, int dir){
+	static bool _StepDir = false;
+	if(speed >= SM_SetMaxSpeed) speed = SM_SetMaxSpeed;
+	if(speed < 0) speed = 0;
+	SM1_speed = speed;
+	if(_StepDir){
+		if(IO_READ_SM_L()){
+			IO_RESET_DIR();
+			_StepDir = false;
+			SM1_stepCount = 0;
+		}else{
+			IO_SET_DIR();
+		}
+	}else{
+		if(IO_READ_SM_R()){
+			IO_SET_DIR();
+			_StepDir = true;
+			SM1_stepCount = 0;
+		}else{
+			IO_RESET_DIR();
+		}
+	}
+
+	/*
 	static uint32_t recent_System_counter = 0;
 	static uint32_t SMsendTime = 0;
 	static bool _StepM = false;
@@ -332,10 +428,6 @@ static int SM1st_SetSpeed(int speed, int dir){
 			_StepM = false;
 			IO_SET_STEP();
 		}
-		/*else{
-			_StepM = true;
-			IO_RESET_STEP();
-		}*/
 		if(_StepDir){
 			if(IO_READ_SM_L()){
 				IO_RESET_DIR();
@@ -354,6 +446,7 @@ static int SM1st_SetSpeed(int speed, int dir){
 			}
 		}
 	}
-	return stepCount;
+	*/
+	//return;
 }
 
