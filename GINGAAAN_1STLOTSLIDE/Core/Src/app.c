@@ -46,7 +46,7 @@ int appTask(void){
 	static int retRcv = 0;
 	static int rcvJudge[16] = {};
 
-	static int testCount = 0;
+	static int testCount = 252;
 	static int testCount1 = 0;
 	static int testCount2 = 0;
 	static int testCount3 = 0;
@@ -83,16 +83,16 @@ int appTask(void){
 		sndData_UART[3] = 3;
 		sndData_UART[4] = 225;
 		*/
-		static int sendLength = 10;
+		static int sendLength = 8;
 		sndData_UART[0] = 0xe0;//testCount1;
 		sndData_UART[1] = 0x01;//testCount1;//testCount2;
-		sndData_UART[2] = testCount;
-		sndData_UART[3] = 5;
-		sndData_UART[4] = 50;
-		sndData_UART[5] = 50;
-		sndData_UART[6] = 50;
-		sndData_UART[7] = 50;
-		sndData_UART[8] = 50;
+		sndData_UART[2] = 255;
+		sndData_UART[3] = 3;
+		sndData_UART[4] = testCount;
+		sndData_UART[5] = 1;
+		sndData_UART[6] = 8;
+		sndData_UART[7] = 250;
+		sndData_UART[8] = 250;
 		/*
 		static int sendLength = 12;
 		sndData_UART[0] = 0xe0;//testCount1;
@@ -257,7 +257,8 @@ int appTask(void){
 	//マイコンについてるボタンかスタートボタンが押されたらボール発射
 	if(IO_READ_USERBUTTON() && _userButton){
 		_userButton = false;
-		testCount++;
+		testCount--;
+		if(testCount < 0) testCount = 255;
 		//IO_SET_USERLED();
 		//IO_SET_SHUTTER_SOL();
 		//LED_SetBrightness(PWM_LED_1ST,1000);
@@ -388,12 +389,12 @@ int appTask(void){
 	debug_bits |= ((int)IO_READ_L_START() << 11);
 	debug_bits |= ((int)IO_READ_L_BALLSUPPLY() << 12);
 	*/
-	//D_Mess_printf("\033[1;1H");
+	D_Mess_printf("\033[1;1H");
 
 	//D_Mess_printf("%016b\n", debug_bits);
 	//D_Mess_printf("%10d\n", G_System_counter);
 	//D_Mess_printf("R :[%3d],[%3d],[%3d],[%3d],[%3d]\n", D_Slider_GetSensorData(0,0), D_Slider_GetSensorData(0,1), D_Slider_GetSensorData(0,2), D_Slider_GetSensorData(0,3), D_Slider_GetSensorData(0,4));
-	//D_Mess_printf("L :[%3d],[%3d],[%3d],[%3d],[%3d]\n", D_Slider_GetSensorData(1,0), D_Slider_GetSensorData(1,1), D_Slider_GetSensorData(1,2), D_Slider_GetSensorData(1,3), D_Slider_GetSensorData(1,4));
+	D_Mess_printf("L :[%3d],[%3d],[%3d],[%3d],[%3d]\n", D_Slider_GetSensorData(1,0), D_Slider_GetSensorData(1,1), D_Slider_GetSensorData(1,2), D_Slider_GetSensorData(1,3), D_Slider_GetSensorData(1,4));
 
 	//D_Mess_printf("retSnd : %2d\n", retSnd);
 	//D_Mess_printf("retRcv : %02d  \n", retRcv);

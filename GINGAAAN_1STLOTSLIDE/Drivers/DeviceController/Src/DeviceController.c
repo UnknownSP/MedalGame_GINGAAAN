@@ -29,6 +29,11 @@ static int receiveFaultCount = 0;
 static SliderLightingMode LightingMode[2] = {SL_DISABLE};
 static uint8_t inPocket[2] = {0};
 
+//static volatile uint32_t SndErrTime = 0;
+//static volatile uint32_t RcvErrTime = 0;
+
+//static volatile int SndCount = 0;
+
 void D_Slider_SystickUpdate(){
 	static uint32_t recent_System_counter = 0;
 	static uint32_t sndTime = 0;
@@ -36,8 +41,11 @@ void D_Slider_SystickUpdate(){
 
 	static uint8_t count = 0;
 
-	sndTime += G_System_counter - recent_System_counter;
-	rcvTime += G_System_counter - recent_System_counter;
+	int deltaT = G_System_counter - recent_System_counter;
+	sndTime += deltaT;
+	rcvTime += deltaT;
+	//SndErrTime += deltaT;
+	//RcvErrTime += deltaT;
 	recent_System_counter = G_System_counter;
 
 	if(!_firstSend){
@@ -61,6 +69,14 @@ void D_Slider_SystickUpdate(){
 		rcvTime = 0;
 		D_Slider_Receive((uint8_t*)RecvData, 10);
 	}
+
+	/*
+	if(RcvErrTime >= 100){
+		//D_Slider_Send((uint8_t*)SensorGetSendData, SENSORGET_LENGTH);
+		//D_Slider_Receive((uint8_t*)RecvData, 10);
+		RcvErrTime = 0;
+	}
+	*/
 
 	D_Slider_LightingUpdate();
 	/*
@@ -435,8 +451,6 @@ void D_Slider_CheckData(uint8_t* data, int length){
 	if(sum != data[SENSORGET_RECEIVE_LENGTH-1]) return;
 	for(int i=0; i<5; i++){
 		if(((data[7]>>i) & 1) == 1) SensorCount[1][i]++;
-	}
-	for(int i=0; i<5; i++){
 		if(((data[8]>>i) & 1) == 1) SensorCount[0][i]++;
 	}
 }
@@ -520,11 +534,22 @@ void D_Slider_SetColorData(bool setColorR[][3], bool setColorL[][3]){
 
 void D_Slider_TransitionCompletedCallBack(){
 	had_completed_tx = true;
+	//SndErrTime = 0;
 }
 
 void D_Slider_ReceptionCompletedCallBack(){
 	had_completed_rx = true;
+	//RcvErrTime = 0;
 	D_Slider_CheckData((uint8_t*)RecvData, 10);
+	/*
+	SndCount++;
+	if(SndCount == 1){
+		D_Slider_Send((uint8_t*)SendData, COLORSEND_LENGTH + AdditionalPacket);
+	}else{
+		D_Slider_Send((uint8_t*)SensorGetSendData, SENSORGET_LENGTH);
+	}
+	if(SndCount >= 10) SndCount = 0;
+	*/
 	/*
 	if(D_Slider_CheckSum((uint8_t*)RecvData,36) && RecvData[0] != 0){
 		for(int i=0; i<32; i++){
