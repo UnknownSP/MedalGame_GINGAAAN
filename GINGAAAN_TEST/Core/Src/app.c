@@ -114,7 +114,7 @@ int appTask(void){
 			testSendData2 = 1;
 			testSendData3++;
 		}
-		D_PWM_Set(1,700);
+		//D_PWM_Set(1,700);
 		/*
 		if(ownIdCount >= 1024){
 			ownIdCount = 0;
@@ -220,10 +220,10 @@ int appTask(void){
 	debug_bits |= ((int)IO_READ_SM_R() << 2);
 	debug_bits |= ((int)IO_READ_SM_C() << 1);
 	debug_bits |= ((int)IO_READ_SM_L() << 0);
-	D_Mess_printf("\033[1;1H");
-	D_Mess_printf("testSendData : %02d\n", testSendData);
+	//D_Mess_printf("\033[1;1H");
+	//D_Mess_printf("testSendData : %02d\n", testSendData);
 	//D_Mess_printf("%d\n", G_System_MicroCounter);
-	D_Mess_printf("%03b\n", debug_bits);
+	//D_Mess_printf("%03b\n", debug_bits);
 	/*
 	D_Mess_printf("%02d\n", errorHandle);
 	D_Mess_printf("%010d\n", step);

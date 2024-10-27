@@ -14,8 +14,7 @@ static uint8_t SensorGetSendData[32] = {0};
 static uint8_t AdditionalPacket = 0;
 static uint8_t RecvData[32] = {0};
 
-static int SensorCountR[5] = {0};
-static int SensorCountL[5] = {0};
+static int SensorCount[2][5] = {{0}};
 
 static
 volatile bool had_completed_tx = true;
@@ -27,10 +26,8 @@ static bool _send = false;
 static bool _firstSend = false;
 static int receiveFaultCount = 0;
 
-static SliderLightingMode rightLightingMode = SL_NORMAL;
-static SliderLightingMode leftLightingMode = SL_NORMAL;
-static uint8_t inPocketR = 0;
-static uint8_t inPocketL = 0;
+static SliderLightingMode LightingMode[2] = {SL_DISABLE};
+static uint8_t inPocket[2] = {0};
 
 void D_Slider_SystickUpdate(){
 	static uint32_t recent_System_counter = 0;
@@ -57,7 +54,7 @@ void D_Slider_SystickUpdate(){
 		}else{
 			D_Slider_Send((uint8_t*)SensorGetSendData, SENSORGET_LENGTH);
 		}
-		if(count >= 5) count = 0;
+		if(count >= 10) count = 0;
 	}
 
 	if(rcvTime >= SLIDER_RECEIVE_INTERVAL){
@@ -102,65 +99,304 @@ void D_Slider_Start(void){
 	*/
 }
 
-void D_Slider_SetLighting(SliderLightingMode rightType, SliderLightingMode leftType, int pocketR, int pocketL){
-	rightLightingMode = rightType;
-	inPocketR = pocketR;
-	leftLightingMode = leftType;
-	inPocketL = pocketL;
-	/*
-	if(rightType = SL_POCKET_IN){
-		switch(inPocketR){
+void D_Slider_SetLightingR(SliderLightingMode rightType, int pocketR){
+	//LightingMode[0] = rightType;
+	inPocket[0] = pocketR;
+	if(rightType == SL_POCKET_IN){
+		switch(pocketR){
+		case 0:
+			LightingMode[0] = SL_POCKET_IN_OUT;
+			break;
 		case 1:
-			rightType = SL_POCKET_IN_1;
+			LightingMode[0] = SL_POCKET_IN_DIA;
 			break;
 		case 2:
-			rightType = SL_POCKET_IN_2;
+			LightingMode[0] = SL_POCKET_IN_UP;
 			break;
 		case 3:
-			rightType = SL_POCKET_IN_3;
+			LightingMode[0] = SL_POCKET_IN_DIA;
 			break;
 		case 4:
-			rightType = SL_POCKET_IN_4;
-			break;
-		case 5:
-			rightType = SL_POCKET_IN_5;
+			LightingMode[0] = SL_POCKET_IN_OUT;
 			break;
 		}
 	}else{
-		rightLightingMode = rightType;
+		LightingMode[0] = rightType;
 	}
-	if(leftType = SL_POCKET_IN){
-		switch(inPocketL){
+}
+
+void D_Slider_SetLightingL(SliderLightingMode leftType, int pocketL){
+	//LightingMode[1] = leftType;
+	inPocket[1] = pocketL;
+	if(leftType == SL_POCKET_IN){
+		switch(pocketL){
+		case 0:
+			LightingMode[1] = SL_POCKET_IN_OUT;
+			break;
 		case 1:
-			leftType = SL_POCKET_IN_1;
+			LightingMode[1] = SL_POCKET_IN_DIA;
 			break;
 		case 2:
-			leftType = SL_POCKET_IN_2;
+			LightingMode[1] = SL_POCKET_IN_UP;
 			break;
 		case 3:
-			leftType = SL_POCKET_IN_3;
+			LightingMode[1] = SL_POCKET_IN_DIA;
 			break;
 		case 4:
-			leftType = SL_POCKET_IN_4;
-			break;
-		case 5:
-			leftType = SL_POCKET_IN_5;
+			LightingMode[1] = SL_POCKET_IN_OUT;
 			break;
 		}
 	}else{
-		leftLightingMode = leftType;
+		LightingMode[1] = leftType;
 	}
-	*/
 }
 
 void D_Slider_LightingUpdate(void){
-	static bool slideColorR[5][3] = {{false}};
-	static bool slideColorL[5][3] = {{false}};
-	switch(rightLightingMode){
-	case SL_NORMAL:
+	static bool slideColor[2][5][3] = {{{false}}};
+	static int updateCount[2] = {0};
+	static int recentUpdateCount = 0;
+	static SliderLightingMode recentMode[2] = {SL_DISABLE};
+	static uint8_t recentInPocket[2] = {0};
+	static bool _changeMode[2] = {false};
+	static bool _animUpdate_1[2] = {false};
+	static bool _animUpdate_2[2] = {false};
+	static int counter1[2] = {0};
 
-		break;
+	int nowCount = G_System_counter;
+
+	for(int side = 0; side < 2; side++){
+		updateCount[side] += nowCount - recentUpdateCount;
+		if(LightingMode[side] != recentMode[side] || inPocket[side] != recentInPocket[side]){
+			_changeMode[side] = true;
+			updateCount[side] = 0;
+			_animUpdate_1[side] = false;
+			_animUpdate_2[side] = false;
+		}
+		recentMode[side] = LightingMode[side];
+		recentInPocket[side] = inPocket[side];
+		switch(LightingMode[side]){
+		case SL_DISABLE:
+			if(_changeMode[side]){
+				for(int i=0; i<5; i++){
+					slideColor[side][i][0] = false;
+					slideColor[side][i][1] = false;
+					slideColor[side][i][2] = false;
+				}
+				_changeMode[side] = false;
+			}
+			break;
+
+		case SL_NORMAL:
+			if(_changeMode[side]){
+				for(int i=0; i<5; i++){
+					slideColor[side][i][0] = true;
+					slideColor[side][i][1] = true;
+					slideColor[side][i][2] = true;
+				}
+				_changeMode[side] = false;
+			}
+			break;
+
+		case SL_NORMAL_FLASH:
+			if(updateCount[side] <= 1700 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				for(int i=0; i<5; i++){
+					slideColor[side][i][0] = true;
+					slideColor[side][i][1] = true;
+					slideColor[side][i][2] = true;
+				}
+			}
+			if(updateCount[side] > 1700 && !_animUpdate_2[side]){
+				_animUpdate_1[side] = false;
+				_animUpdate_2[side] = true;
+				for(int i=0; i<5; i++){
+					slideColor[side][i][0] = false;
+					slideColor[side][i][1] = false;
+					slideColor[side][i][2] = false;
+				}
+			}
+			if(updateCount[side] >= 2000) updateCount[side] = 0;
+			break;
+
+		case SL_POCKET_IN_OUT:
+			if(_changeMode[side]){
+				for(int i=0; i<5; i++){
+					slideColor[side][i][0] = false;
+					slideColor[side][i][1] = false;
+					slideColor[side][i][2] = false;
+				}
+				_changeMode[side] = false;
+			}
+			if(updateCount[side] < 100 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = true;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 100 && updateCount[side] < 200 && !_animUpdate_2[side]){
+				_animUpdate_1[side] = false;
+				_animUpdate_2[side] = true;
+				slideColor[side][inPocket[side]][0] = false;
+				slideColor[side][inPocket[side]][1] = false;
+				slideColor[side][inPocket[side]][2] = false;
+			}
+			if(updateCount[side] >= 200 && updateCount[side] < 375 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = true;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 375 &&updateCount[side] < 475 && !_animUpdate_2[side]){
+				_animUpdate_1[side] = false;
+				_animUpdate_2[side] = true;
+				slideColor[side][inPocket[side]][0] = false;
+				slideColor[side][inPocket[side]][1] = false;
+				slideColor[side][inPocket[side]][2] = false;
+			}
+			if(updateCount[side] >= 475 &&updateCount[side] < 650 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = true;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+
+			if(updateCount[side] > 650) LightingMode[side] = SL_NORMAL_FLASH;
+
+			break;
+
+		case SL_POCKET_IN_DIA:
+			if(_changeMode[side]){
+				for(int i=0; i<5; i++){
+					slideColor[side][i][0] = false;
+					slideColor[side][i][1] = false;
+					slideColor[side][i][2] = false;
+				}
+				_changeMode[side] = false;
+			}
+			if(updateCount[side] < 100 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = true;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 100 && updateCount[side] < 180 && !_animUpdate_2[side]){
+				_animUpdate_1[side] = false;
+				_animUpdate_2[side] = true;
+				slideColor[side][inPocket[side]][0] = false;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 180 && updateCount[side] < 300 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = true;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 300 &&updateCount[side] < 380 && !_animUpdate_2[side]){
+				_animUpdate_1[side] = false;
+				_animUpdate_2[side] = true;
+				slideColor[side][inPocket[side]][0] = false;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 380 &&updateCount[side] < 500 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = true;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 500 &&updateCount[side] < 580 && !_animUpdate_2[side]){
+				_animUpdate_1[side] = false;
+				_animUpdate_2[side] = true;
+				slideColor[side][inPocket[side]][0] = false;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 580 &&updateCount[side] < 700 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = true;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+
+			if(updateCount[side] > 700) LightingMode[side] = SL_NORMAL_FLASH;
+
+			break;
+
+		case SL_POCKET_IN_UP:
+			if(_changeMode[side]){
+				for(int i=0; i<5; i++){
+					slideColor[side][i][0] = false;
+					slideColor[side][i][1] = false;
+					slideColor[side][i][2] = false;
+				}
+				_changeMode[side] = false;
+				counter1[side] = 0;
+			}
+			if(updateCount[side] >= 100 + counter1[side]*200 && updateCount[side] < 180 + counter1[side]*200 && !_animUpdate_1[side]){
+				_animUpdate_1[side] = true;
+				_animUpdate_2[side] = false;
+				slideColor[side][inPocket[side]][0] = false;
+				slideColor[side][inPocket[side]][1] = true;
+				slideColor[side][inPocket[side]][2] = true;
+			}
+			if(updateCount[side] >= 180 + counter1[side]*200 && updateCount[side] < 300 + counter1[side]*200 && !_animUpdate_2[side]){
+				_animUpdate_1[side] = false;
+				_animUpdate_2[side] = true;
+				slideColor[side][inPocket[side]][0] = false;
+				slideColor[side][inPocket[side]][1] = false;
+				slideColor[side][inPocket[side]][2] = false;
+				counter1[side]++;
+			}
+
+			if(updateCount[side] > 2000) LightingMode[side] = SL_NORMAL_FLASH;
+
+			break;
+		}
 	}
+
+	recentUpdateCount = G_System_counter;
+	D_Slider_SetColorData(slideColor[0], slideColor[1]);
+}
+
+int D_Slider_GetPocketR(bool _reset){
+	static int recentSensorCount[5] = {{0}};
+	static int returnPocket = -1;
+	if (_reset) {
+		returnPocket = -1;
+		return returnPocket;
+	}
+	for(int i=0; i<5; i++){
+		if(SensorCount[0][i] != recentSensorCount[i]){
+			returnPocket = i;
+		}
+		recentSensorCount[i] = SensorCount[0][i];
+	}
+	return returnPocket;
+}
+
+int D_Slider_GetPocketL(bool _reset){
+	static int recentSensorCount[5] = {{0}};
+	static int returnPocket = -1;
+	if (_reset) {
+		returnPocket = -1;
+		return returnPocket;
+	}
+	for(int i=0; i<5; i++){
+		if(SensorCount[1][i] != recentSensorCount[i]){
+			returnPocket = i;
+		}
+		recentSensorCount[i] = SensorCount[1][i];
+	}
+	return returnPocket;
 }
 
 int D_Slider_Send(uint8_t* data, int length){
@@ -184,9 +420,9 @@ int D_Slider_Receive(uint8_t* data, int length){
 
 int D_Slider_GetSensorData(int side, int num){
 	if(side == 0){
-		return SensorCountR[num];
+		return SensorCount[0][num];
 	}else{
-		return SensorCountL[num];
+		return SensorCount[1][num];
 	}
 }
 
@@ -198,10 +434,10 @@ void D_Slider_CheckData(uint8_t* data, int length){
 	}
 	if(sum != data[SENSORGET_RECEIVE_LENGTH-1]) return;
 	for(int i=0; i<5; i++){
-		if(((data[7]>>i) & 1) == 1) SensorCountL[i]++;
+		if(((data[7]>>i) & 1) == 1) SensorCount[1][i]++;
 	}
 	for(int i=0; i<5; i++){
-		if(((data[8]>>i) & 1) == 1) SensorCountR[i]++;
+		if(((data[8]>>i) & 1) == 1) SensorCount[0][i]++;
 	}
 }
 

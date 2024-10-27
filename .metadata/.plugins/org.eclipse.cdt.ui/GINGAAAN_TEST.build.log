@@ -1,4 +1,4 @@
-18:24:47 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
+18:49:39 **** Incremental Build of configuration Debug for project GINGAAAN_TEST ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
@@ -47,7 +47,7 @@ arm-none-eabi-size   GINGAAAN_TEST.elf
 arm-none-eabi-objdump -h -S  GINGAAAN_TEST.elf  > "GINGAAAN_TEST.list"
 arm-none-eabi-objcopy  -O binary  GINGAAAN_TEST.elf  "GINGAAAN_TEST.bin"
    text	   data	    bss	    dec	    hex	filename
-  35112	    152	   3592	  38856	   97c8	GINGAAAN_TEST.elf
+  33968	    152	   3592	  37712	   9350	GINGAAAN_TEST.elf
 Finished building: default.size.stdout
  
 Finished building: GINGAAAN_TEST.bin
@@ -55,5 +55,5 @@ Finished building: GINGAAAN_TEST.bin
 Finished building: GINGAAAN_TEST.list
  
 
-18:24:51 Build Finished. 0 errors, 13 warnings. (took 3s.452ms)
+18:49:43 Build Finished. 0 errors, 13 warnings. (took 3s.732ms)
 

@@ -64,6 +64,7 @@ int appTask(void){
 
 	static uint8_t sum = 0;
 	if(rcvTime >= UART_RECEIVE_INTERVAL){
+		/*
 		static int sendLength = 10;
 		sndData_UART[0] = 0xe0;//testCount1;
 		sndData_UART[1] = testCount1;//testCount1;//testCount2;
@@ -73,6 +74,7 @@ int appTask(void){
 		sndData_UART[5] = 200;
 		sndData_UART[6] = 200;
 		sndData_UART[7] = 200;
+		*/
 		/*
 		static int sendLength = 8;
 		sndData_UART[0] = 0xe0;//testCount1;
@@ -81,14 +83,16 @@ int appTask(void){
 		sndData_UART[3] = 3;
 		sndData_UART[4] = 225;
 		*/
-		/*
-		static int sendLength = 8;
+		static int sendLength = 10;
 		sndData_UART[0] = 0xe0;//testCount1;
 		sndData_UART[1] = 0x01;//testCount1;//testCount2;
 		sndData_UART[2] = testCount;
-		sndData_UART[3] = 3;
+		sndData_UART[3] = 5;
 		sndData_UART[4] = 50;
-		*/
+		sndData_UART[5] = 50;
+		sndData_UART[6] = 50;
+		sndData_UART[7] = 50;
+		sndData_UART[8] = 50;
 		/*
 		static int sendLength = 12;
 		sndData_UART[0] = 0xe0;//testCount1;
@@ -200,8 +204,45 @@ int appTask(void){
 	SliderLEDDataL[3][2] = testCount1 % 2 == 0;
 	SliderLEDDataL[2][0] = testCount1 % 2 == 0;
 	*/
-	D_Slider_SetColorData(SliderLEDDataR, SliderLEDDataL);
+	//D_Slider_SetColorData(SliderLEDDataR, SliderLEDDataL);
+	static bool _first = false;
+	static bool _firstR = false;
+	static bool _firstL = false;
 
+	if(!_first){
+		D_Slider_SetLightingR(SL_NORMAL_FLASH,0);
+		D_Slider_SetLightingL(SL_NORMAL_FLASH,0);
+		_first = true;
+	}
+	int pocketR = D_Slider_GetPocketR(false);
+	if(pocketR != -1){
+		D_Slider_SetLightingR(SL_POCKET_IN,pocketR);
+		D_Slider_GetPocketR(true);
+	}
+	int pocketL = D_Slider_GetPocketL(false);
+	if(pocketL != -1){
+		D_Slider_SetLightingL(SL_POCKET_IN,pocketL);
+		D_Slider_GetPocketL(true);
+	}
+	/*
+	if(D_Slider_GetSensorData(0,1) != 0 || D_Slider_GetSensorData(0,3) != 0){
+		if(!_firstR){
+			r = SL_POCKET_IN;
+			pocketR = 0;
+			_firstR = true;
+			D_Slider_SetLightingR(r,pocketR);
+		}
+		//r = SL_DISABLE;
+	}
+	if(D_Slider_GetSensorData(1,1) != 0 || D_Slider_GetSensorData(1,3) != 0){
+		if(!_firstL){
+			l = SL_POCKET_IN;
+			pocketL = 0;
+			_firstL = true;
+			D_Slider_SetLightingL(l,pocketL);
+		}
+	}
+	*/
 	/*
 	if(!_firstSend){
 		_firstSend = true;
