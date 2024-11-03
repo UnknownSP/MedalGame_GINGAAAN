@@ -1,0 +1,4 @@
+I2C.c:13:5:D_I2C1_Transmit	16	static
+I2C.c:28:5:D_I2C1_Receive	16	static
+I2C.c:43:6:D_I2C1_TransitionCompletedCallBack	4	static
+I2C.c:47:6:D_I2C1_ReceptionCompletedCallBack	4	static

@@ -1,0 +1,19 @@
+16:36:02 **** Build of configuration Debug for project GINGAAAN_STEPPING ****
+make -j3 all 
+arm-none-eabi-gcc -o "GINGAAAN_STEPPING.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_STEPPING/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_STEPPING.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_STEPPING.elf
+ 
+arm-none-eabi-size   GINGAAAN_STEPPING.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_STEPPING.elf  > "GINGAAAN_STEPPING.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_STEPPING.elf  "GINGAAAN_STEPPING.bin"
+   text	   data	    bss	    dec	    hex	filename
+  33968	    152	   3592	  37712	   9350	GINGAAAN_STEPPING.elf
+Finished building: default.size.stdout
+Finished building: GINGAAAN_STEPPING.bin
+ 
+ 
+Finished building: GINGAAAN_STEPPING.list
+ 
+
+16:36:03 Build Finished. 0 errors, 0 warnings. (took 1s.562ms)
+

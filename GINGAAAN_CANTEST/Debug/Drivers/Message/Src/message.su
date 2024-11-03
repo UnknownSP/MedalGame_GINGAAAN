@@ -1,0 +1,7 @@
+message.c:25:6:D_Mess_printf	16	static
+message.c:37:6:_msg	36	static
+message.c:56:6:D_Mess_flush	8	static
+message.c:72:5:D_Mess_Receive	16	static
+message.c:85:6:_xprintf	16	static
+message.c:104:6:D_Mess_TransitionCompletedCallBack	4	static
+message.c:107:6:D_Mess_ReceptionCompletedCallBack	4	static
