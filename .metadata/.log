@@ -2609,3 +2609,99 @@ Binding(COMMAND+SHIFT+-,
 !MESSAGE OK
 !SUBENTRY 1 org.eclipse.core.resources 4 77 2024-11-03 16:00:09.494
 !MESSAGE /Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOT overlaps the location of another project: 'GINGAAAN_1STLOT'
+!SESSION 2024-11-11 00:06:39.012 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ja_JP
+Framework arguments:  -keyring /Users/UnknownSP/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/UnknownSP/.eclipse_keyring
+
+!ENTRY org.eclipse.jface 2 0 2024-11-11 00:06:47.216
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-11-11 00:06:47.216
+!MESSAGE A conflict occurred for COMMAND+SHIFT+-:
+Binding(COMMAND+SHIFT+-,
+	ParameterizedCommand(Command(org.eclipse.ui.window.splitEditor,Toggle Split Editor,
+		Split or join the currently active editor.,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74bdfa0b,
+		[Parameter(Splitter.isHorizontal,Orientation,null,false)],,true),[org.eclipse.core.commands.Parameterization@6102fa90]),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,ja,,system)
+Binding(COMMAND+SHIFT+-,
+	ParameterizedCommand(Command(org.eclipse.ui.window.splitEditor,Toggle Split Editor,
+		Split or join the currently active editor.,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@74bdfa0b,
+		[Parameter(Splitter.isHorizontal,Orientation,null,false)],,true),[org.eclipse.core.commands.Parameterization@6102fa90]),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-11 00:06:49.204
+!MESSAGE Log4j initialized with config file /Users/UnknownSP/STM32CubeIDE/GINGAAAN/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-11 00:07:05.538
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.resources 4 77 2024-11-14 00:07:30.849
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-11-14 00:07:30.849
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-11-14 00:07:30.849
+!MESSAGE /Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOT overlaps the location of another project: 'GINGAAAN_1STLOT'
+!SESSION 2024-11-25 18:23:28.841 -----------------------------------------------
+eclipse.buildId=Version 1.7.0
+java.version=11.0.10
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=ja_JP
+Framework arguments:  -keyring /Users/UnknownSP/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/UnknownSP/.eclipse_keyring
+
+!ENTRY org.eclipse.jface 2 0 2024-11-25 18:23:56.934
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2024-11-25 18:23:56.934
+!MESSAGE A conflict occurred for COMMAND+SHIFT+-:
+Binding(COMMAND+SHIFT+-,
+	ParameterizedCommand(Command(org.eclipse.ui.window.splitEditor,Toggle Split Editor,
+		Split or join the currently active editor.,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c90029b,
+		[Parameter(Splitter.isHorizontal,Orientation,null,false)],,true),[org.eclipse.core.commands.Parameterization@6102fa90]),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,ja,,system)
+Binding(COMMAND+SHIFT+-,
+	ParameterizedCommand(Command(org.eclipse.ui.window.splitEditor,Toggle Split Editor,
+		Split or join the currently active editor.,
+		Category(org.eclipse.ui.category.window,Window,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@1c90029b,
+		[Parameter(Splitter.isHorizontal,Orientation,null,false)],,true),[org.eclipse.core.commands.Parameterization@6102fa90]),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,cocoa,system)
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-11-25 18:23:59.114
+!MESSAGE Log4j initialized with config file /Users/UnknownSP/STM32CubeIDE/GINGAAAN/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-11-25 18:24:16.416
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.resources 4 77 2024-11-25 19:52:12.123
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-11-25 19:52:12.123
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-11-25 19:52:12.123
+!MESSAGE /Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOT overlaps the location of another project: 'GINGAAAN_1STLOT'
+
+!ENTRY org.eclipse.core.resources 4 77 2024-11-25 20:20:52.133
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-11-25 20:20:52.133
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-11-25 20:20:52.133
+!MESSAGE /Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOT overlaps the location of another project: 'GINGAAAN_1STLOT'
+
+!ENTRY org.eclipse.core.resources 4 77 2024-11-25 20:22:50.254
+!MESSAGE Invalid project description.
+!SUBENTRY 1 unknown 0 0 2024-11-25 20:22:50.254
+!MESSAGE OK
+!SUBENTRY 1 org.eclipse.core.resources 4 77 2024-11-25 20:22:50.254
+!MESSAGE /Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOT overlaps the location of another project: 'GINGAAAN_1STLOT'

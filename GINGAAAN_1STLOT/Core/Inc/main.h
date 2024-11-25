@@ -55,6 +55,7 @@ extern CAN_HandleTypeDef hcan1;
 extern DMA_HandleTypeDef hdma_i2c1_rx;
 extern DMA_HandleTypeDef hdma_i2c1_tx;
 
+extern TIM_HandleTypeDef htim2;
 extern TIM_HandleTypeDef htim3;
 
 extern UART_HandleTypeDef huart1;

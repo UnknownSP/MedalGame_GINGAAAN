@@ -20,6 +20,7 @@ int appInit(void){
 			sndData[j][i] = 0;
 		}
 	}
+	D_PWM_Init();
 	return 0;
 }
 
@@ -97,7 +98,7 @@ int appTask(void){
 		count1++;
 		if(count1 >= 1 ){//&& errorHandle == 0){
 			count1 = 0;
-			testSendData++;
+			//testSendData++;
 		}
 		if(testSendData >= 1000){ //&& errorHandle == 0){
 			testSendData = 0;
@@ -155,8 +156,15 @@ int appTask(void){
 		IO_SET_USERLED();
 		if(_userButton){
 			_userButton = false;
-			testSendData += 1;
+			testSendData += 100;
 		}
+		/*
+		for(int i=1; i<7; i++){
+			D_PWM_Set(i,1000);
+		}
+		*/
+		IO_SET_SHOOTER_R();
+		IO_SET_SHOOTER_L();
 		//IO_SET_BLDC1_ENA();
 		//IO_SET_BLDC2_ENA();
 		//D_PWM_Set(BLDC1,50);
@@ -173,6 +181,13 @@ int appTask(void){
 	}else{
 		_userButton = true;
 		IO_RESET_USERLED();
+		/*
+		for(int i=1; i<7; i++){
+			D_PWM_Set(i,0);
+		}
+		*/
+		IO_RESET_SHOOTER_R();
+		IO_RESET_SHOOTER_L();
 		//IO_RESET_BLDC1_ENA();
 		//IO_RESET_BLDC2_ENA();
 		//IO_RESET_BLDC3_ENA();
@@ -180,6 +195,38 @@ int appTask(void){
 		//D_PWM_Set(BLDC2,3000);
 		//D_PWM_Set(BLDC3,3500);
 		//JP_Lift_Up();
+	}
+
+	if(IO_READ_WAITBALL_R()){
+		D_PWM_Set(LED_RIGHT_R, testSendData);
+	}else{
+		D_PWM_Set(LED_RIGHT_R,0);
+	}
+	if(IO_READ_SHOOTCOUNT_R()){
+		D_PWM_Set(LED_RIGHT_G, testSendData);
+	}else{
+		D_PWM_Set(LED_RIGHT_G,0);
+	}
+	if(IO_READ_SOLENOID_R()){
+		D_PWM_Set(LED_RIGHT_B, testSendData);
+	}else{
+		D_PWM_Set(LED_RIGHT_B,0);
+	}
+
+	if(IO_READ_WAITBALL_L()){
+		D_PWM_Set(LED_LEFT_R, testSendData);
+	}else{
+		D_PWM_Set(LED_LEFT_R,0);
+	}
+	if(IO_READ_SHOOTCOUNT_L()){
+		D_PWM_Set(LED_LEFT_G, testSendData);
+	}else{
+		D_PWM_Set(LED_LEFT_G,0);
+	}
+	if(IO_READ_SOLENOID_L()){
+		D_PWM_Set(LED_LEFT_B, testSendData);
+	}else{
+		D_PWM_Set(LED_LEFT_B,0);
 	}
 
 	for(int i=0; i<8; i++){
