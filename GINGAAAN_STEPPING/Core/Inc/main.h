@@ -54,7 +54,9 @@ extern CAN_HandleTypeDef hcan1;
 extern DMA_HandleTypeDef hdma_i2c1_rx;
 extern DMA_HandleTypeDef hdma_i2c1_tx;
 
+#if USE_PWM
 extern TIM_HandleTypeDef htim3;
+#endif
 
 extern UART_HandleTypeDef huart1;
 extern UART_HandleTypeDef huart2;
@@ -71,8 +73,6 @@ extern volatile uint32_t G_System_MicroCounter;
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
-
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);

@@ -1,5 +1,69 @@
-16:36:02 **** Build of configuration Debug for project GINGAAAN_STEPPING ****
+13:18:06 **** Incremental Build of configuration Debug for project GINGAAAN_STEPPING ****
 make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:161:13: warning: unused variable 'step' [-Wunused-variable]
+  161 |  static int step = 0;
+      |             ^~~~
+../Core/Src/app.c:70:14: warning: unused variable '_1stLot_Init' [-Wunused-variable]
+   70 |  static bool _1stLot_Init = false;
+      |              ^~~~~~~~~~~~
+../Core/Src/app.c:65:17: warning: unused variable 'StepSpeed' [-Wunused-variable]
+   65 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:61:13: warning: unused variable 'idCount' [-Wunused-variable]
+   61 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:59:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   59 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:53:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   53 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+../Core/Src/app.c: In function 'SM_CalSpeedFunc1':
+../Core/Src/app.c:283:19: warning: implicit declaration of function 'IO_READ_SM_R'; did you mean 'IO_READ_1STLOT_R'? [-Wimplicit-function-declaration]
+  283 |  if (_stopEna && (IO_READ_SM_R() || IO_READ_SM_L())){
+      |                   ^~~~~~~~~~~~
+      |                   IO_READ_1STLOT_R
+../Core/Src/app.c:283:37: warning: implicit declaration of function 'IO_READ_SM_L'; did you mean 'IO_READ_1STLOT_L'? [-Wimplicit-function-declaration]
+  283 |  if (_stopEna && (IO_READ_SM_R() || IO_READ_SM_L())){
+      |                                     ^~~~~~~~~~~~
+      |                                     IO_READ_1STLOT_L
+At top level:
+../Core/Src/app.c:53:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+   53 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+../Core/Src/app.c:59:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   59 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:61:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   61 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:65:17: warning: 'StepSpeed' defined but not used [-Wunused-variable]
+   65 |  static uint8_t StepSpeed[19] = {
+      |                 ^~~~~~~~~
+../Core/Src/app.c:70:14: warning: '_1stLot_Init' defined but not used [-Wunused-variable]
+   70 |  static bool _1stLot_Init = false;
+      |              ^~~~~~~~~~~~
+../Core/Src/app.c:161:13: warning: 'step' defined but not used [-Wunused-variable]
+  161 |  static int step = 0;
+      |             ^~~~
+../Core/Src/app.c:303:12: warning: 'SM_CalSpeedFunc2' defined but not used [-Wunused-function]
+  303 | static int SM_CalSpeedFunc2(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:271:12: warning: 'SM_CalSpeedFunc1' defined but not used [-Wunused-function]
+  271 | static int SM_CalSpeedFunc1(int nowPos, int minSpeed, int maxSpeed){
+      |            ^~~~~~~~~~~~~~~~
+../Core/Src/app.c:257:12: warning: 'SM_CalSpeed' defined but not used [-Wunused-function]
+  257 | static int SM_CalSpeed(int targetSpeed){
+      |            ^~~~~~~~~~~
+../Core/Src/app.c:30:13: warning: '_1stLot_Ena' defined but not used [-Wunused-variable]
+   30 | static bool _1stLot_Ena = false;
+      |             ^~~~~~~~~~~
+In file included from ../Core/Src/app.c:11:
+../Core/Inc/app.h:25:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   25 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
 arm-none-eabi-gcc -o "GINGAAAN_STEPPING.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_STEPPING/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_STEPPING.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GINGAAAN_STEPPING.elf
  
@@ -7,13 +71,13 @@ arm-none-eabi-size   GINGAAAN_STEPPING.elf
 arm-none-eabi-objdump -h -S  GINGAAAN_STEPPING.elf  > "GINGAAAN_STEPPING.list"
 arm-none-eabi-objcopy  -O binary  GINGAAAN_STEPPING.elf  "GINGAAAN_STEPPING.bin"
    text	   data	    bss	    dec	    hex	filename
-  33968	    152	   3592	  37712	   9350	GINGAAAN_STEPPING.elf
+  32304	    156	   3540	  36000	   8ca0	GINGAAAN_STEPPING.elf
 Finished building: default.size.stdout
-Finished building: GINGAAAN_STEPPING.bin
  
+Finished building: GINGAAAN_STEPPING.bin
  
 Finished building: GINGAAAN_STEPPING.list
  
 
-16:36:03 Build Finished. 0 errors, 0 warnings. (took 1s.562ms)
+13:18:08 Build Finished. 0 errors, 19 warnings. (took 2s.533ms)
 
