@@ -40,34 +40,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := GINGAAAN_STEPPING
+BUILD_ARTIFACT_NAME := GINGAAAN_2NDLOT
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-GINGAAAN_STEPPING.elf \
+GINGAAAN_2NDLOT.elf \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-GINGAAAN_STEPPING.list \
+GINGAAAN_2NDLOT.list \
 
 OBJCOPY_BIN += \
-GINGAAAN_STEPPING.bin \
+GINGAAAN_2NDLOT.bin \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: GINGAAAN_STEPPING.elf secondary-outputs
+main-build: GINGAAAN_2NDLOT.elf secondary-outputs
 
 # Tool invocations
-GINGAAAN_STEPPING.elf: $(OBJS) $(USER_OBJS) /Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_STEPPING/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "GINGAAAN_STEPPING.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_STEPPING/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_STEPPING.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+GINGAAAN_2NDLOT.elf: $(OBJS) $(USER_OBJS) /Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -76,19 +76,19 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-GINGAAAN_STEPPING.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "GINGAAAN_STEPPING.list"
+GINGAAAN_2NDLOT.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "GINGAAAN_2NDLOT.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
-GINGAAAN_STEPPING.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "GINGAAAN_STEPPING.bin"
+GINGAAAN_2NDLOT.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "GINGAAAN_2NDLOT.bin"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(SIZE_OUTPUT)$(OBJDUMP_LIST)$(EXECUTABLES)$(OBJS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(OBJCOPY_BIN) GINGAAAN_STEPPING.elf
+	-$(RM) $(SIZE_OUTPUT)$(OBJDUMP_LIST)$(EXECUTABLES)$(OBJS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(OBJCOPY_BIN) GINGAAAN_2NDLOT.elf
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)

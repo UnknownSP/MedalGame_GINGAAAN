@@ -12,13 +12,16 @@
 //extern TIM_HandleTypeDef htim3;
 
 void D_PWM_Init(void){
+#if USE_PWM
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_3);
 	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+#endif
 }
 
 void D_PWM_Set(int channel, int value){
+#if USE_PWM
 	switch(channel){
 	case 1:
 		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, value);
@@ -33,6 +36,7 @@ void D_PWM_Set(int channel, int value){
 		__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, value);
 		break;
 	}
+#endif
 }
 
 
