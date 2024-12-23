@@ -13,6 +13,8 @@
 int appTask(void);
 int appInit(void);
 
+void BLDC_Set(void);
+
 #define USE_I2C false
 #define USE_PWM false
 
@@ -35,14 +37,14 @@ static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信デー�
 #define CAN_ST4 3
 #define CAN_MAIN 4
 
-#define IO_SET_UPLING_START()	(D_GPIO_Set(GPIOA,GPIO_PIN_7))
-#define IO_RESET_UPLING_START()	(D_GPIO_Reset(GPIOA,GPIO_PIN_7))
-#define IO_SET_UPLING_DIR()		(D_GPIO_Set(GPIOB,GPIO_PIN_1))
-#define IO_RESET_UPLING_DIR()	(D_GPIO_Reset(GPIOB,GPIO_PIN_1))
-#define IO_SET_UPLING_BRAKE()	(D_GPIO_Set(GPIOC,GPIO_PIN_3))
-#define IO_RESET_UPLING_BRAKE()	(D_GPIO_Reset(GPIOC,GPIO_PIN_3))
-#define IO_SET_UPLING_PWM()		(D_GPIO_Set(GPIOA,GPIO_PIN_6))
-#define IO_RESET_UPLING_PWM()	(D_GPIO_Reset(GPIOA,GPIO_PIN_6))
+#define IO_SET_GOLING_START()	(D_GPIO_Set(GPIOA,GPIO_PIN_7))
+#define IO_RESET_GOLING_START()	(D_GPIO_Reset(GPIOA,GPIO_PIN_7))
+#define IO_SET_GOLING_DIR()		(D_GPIO_Set(GPIOB,GPIO_PIN_1))
+#define IO_RESET_GOLING_DIR()	(D_GPIO_Reset(GPIOB,GPIO_PIN_1))
+#define IO_SET_GOLING_BRAKE()	(D_GPIO_Set(GPIOC,GPIO_PIN_3))
+#define IO_RESET_GOLING_BRAKE()	(D_GPIO_Reset(GPIOC,GPIO_PIN_3))
+#define IO_SET_GOLING_PWM()		(D_GPIO_Set(GPIOA,GPIO_PIN_6))
+#define IO_RESET_GOLING_PWM()	(D_GPIO_Reset(GPIOA,GPIO_PIN_6))
 
 #define IO_SET_TABLE_START()	(D_GPIO_Set(GPIOA,GPIO_PIN_15))
 #define IO_RESET_TABLE_START()	(D_GPIO_Reset(GPIOA,GPIO_PIN_15))

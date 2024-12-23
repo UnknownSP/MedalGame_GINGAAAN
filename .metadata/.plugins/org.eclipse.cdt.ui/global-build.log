@@ -1,199 +1,23 @@
-01:28:50 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
-make -j3 all 
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.o"
-arm-none-eabi-gcc "../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.d" -MT"Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.o"
-arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
-In file included from ../Core/Inc/main.h:38,
-                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
-                 from ../Drivers/PWM/Src/pwm.c:8:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
-arm-none-eabi-gcc "../Drivers/Message/Src/xprintf.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/xprintf.d" -MT"Drivers/Message/Src/xprintf.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/xprintf.o"
-In file included from ../Core/Inc/main.h:38,
-                 from ../Drivers/Message/Src/message.c:7:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
-In file included from ../Core/Inc/main.h:38,
-                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
-                 from ../Drivers/I2C/Src/I2C.c:9:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
-arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
-In file included from ../Core/Inc/main.h:38,
-                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
-                 from ../Drivers/GPIO/Src/GPIO.c:8:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
-../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
-   85 |  int setIdx = 0;
-      |      ^~~~~~
-../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
-../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
-  125 |   int setIdx = 0;
-      |       ^~~~~~
-In file included from ../Core/Inc/main.h:38,
-                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
-                 from ../Drivers/CAN/Src/CAN.c:8:
-At top level:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
-../Core/Src/app.c: In function 'appTask':
-../Core/Src/app.c:41:13: warning: unused variable 'idCount' [-Wunused-variable]
-   41 |  static int idCount = 8;
-      |             ^~~~~~~
-../Core/Src/app.c:39:13: warning: unused variable 'testSendData4' [-Wunused-variable]
-   39 |  static int testSendData4 = 0;
-      |             ^~~~~~~~~~~~~
-../Core/Src/app.c:33:13: warning: unused variable 'sendLength' [-Wunused-variable]
-   33 |  static int sendLength = 8;
-      |             ^~~~~~~~~~
-At top level:
-../Core/Src/app.c:33:13: warning: 'sendLength' defined but not used [-Wunused-variable]
-../Core/Src/app.c:39:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
-   39 |  static int testSendData4 = 0;
-      |             ^~~~~~~~~~~~~
-../Core/Src/app.c:41:13: warning: 'idCount' defined but not used [-Wunused-variable]
-   41 |  static int idCount = 8;
-      |             ^~~~~~~
-arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
-In file included from ../Core/Inc/main.h:38,
-                 from ../Core/Src/main.c:21:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-In file included from ../Core/Inc/main.h:38,
-                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
-../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
-../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
-  242 |   HAL_CAN_TxMailboxCompleteCallback();
-      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |   HAL_CAN_TxMailbox2CompleteCallback
-In file included from ../Core/Inc/main.h:38,
-                 from ../Core/Src/stm32f4xx_it.c:22:
-At top level:
-../Core/Inc/app.h:21:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
-   21 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~~~~~~
-../Core/Inc/app.h:20:16: warning: 'rcvData' defined but not used [-Wunused-variable]
-   20 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
-      |                ^~~~~~~
-../Core/Inc/app.h:19:16: warning: 'sndData' defined but not used [-Wunused-variable]
-   19 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
-      |                ^~~~~~~
-arm-none-eabi-gcc "../Core/Src/system_stm32f4xx.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/system_stm32f4xx.d" -MT"Core/Src/system_stm32f4xx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/system_stm32f4xx.o"
-arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GINGAAAN_2NDLOT.elf
- 
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
-arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
-arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
-   text	   data	    bss	    dec	    hex	filename
-  22348	     40	   3496	  25884	   651c	GINGAAAN_2NDLOT.elf
-Finished building: default.size.stdout
- 
-Finished building: GINGAAAN_2NDLOT.bin
- 
-Finished building: GINGAAAN_2NDLOT.list
- 
-11:59:01 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
-make -j3 all 
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
-   text	   data	    bss	    dec	    hex	filename
-  22348	     40	   3496	  25884	   651c	GINGAAAN_2NDLOT.elf
-Finished building: default.size.stdout
- 
-12:00:14 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+15:34:09 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
-../Core/Src/app.c:41:13: warning: unused variable 'idCount' [-Wunused-variable]
-   41 |  static int idCount = 8;
+../Core/Src/app.c:50:13: warning: unused variable 'idCount' [-Wunused-variable]
+   50 |  static int idCount = 8;
       |             ^~~~~~~
-../Core/Src/app.c:39:13: warning: unused variable 'testSendData4' [-Wunused-variable]
-   39 |  static int testSendData4 = 0;
+../Core/Src/app.c:48:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   48 |  static int testSendData4 = 0;
       |             ^~~~~~~~~~~~~
-../Core/Src/app.c:33:13: warning: unused variable 'sendLength' [-Wunused-variable]
-   33 |  static int sendLength = 8;
+../Core/Src/app.c:42:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   42 |  static int sendLength = 8;
       |             ^~~~~~~~~~
 At top level:
-../Core/Src/app.c:33:13: warning: 'sendLength' defined but not used [-Wunused-variable]
-../Core/Src/app.c:39:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
-   39 |  static int testSendData4 = 0;
+../Core/Src/app.c:42:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:48:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   48 |  static int testSendData4 = 0;
       |             ^~~~~~~~~~~~~
-../Core/Src/app.c:41:13: warning: 'idCount' defined but not used [-Wunused-variable]
-   41 |  static int idCount = 8;
+../Core/Src/app.c:50:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   50 |  static int idCount = 8;
       |             ^~~~~~~
 arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GINGAAAN_2NDLOT.elf
@@ -202,7 +26,7 @@ arm-none-eabi-size   GINGAAAN_2NDLOT.elf
 arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
 arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
    text	   data	    bss	    dec	    hex	filename
-  22496	     40	   3496	  26032	   65b0	GINGAAAN_2NDLOT.elf
+  25712	     52	   3528	  29292	   726c	GINGAAAN_2NDLOT.elf
 Finished building: default.size.stdout
  
 Finished building: GINGAAAN_2NDLOT.bin

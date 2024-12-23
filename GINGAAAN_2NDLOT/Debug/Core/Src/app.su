@@ -1,2 +1,6 @@
-app.c:14:5:appInit	16	static
-app.c:26:5:appTask	24	static
+app.c:23:5:appInit	16	static
+app.c:35:5:appTask	24	static
+app.c:241:6:BLDC_GoLing_SetSpeedTrapezoidal	16	static
+app.c:267:6:BLDC_GoLing_SetMotorState	16	static
+app.c:289:6:BLDC_GoLing_SetMotorSpeed	24	static
+app.c:300:6:BLDC_Set	8	static

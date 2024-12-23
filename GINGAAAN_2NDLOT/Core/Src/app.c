@@ -10,6 +10,15 @@
 #include <math.h>
 #include "app.h"
 
+void BLDC_GoLing_SetMotorState(bool _stop, bool _ena);
+void BLDC_GoLing_SetSpeedTrapezoidal(int speed, int dir);
+void BLDC_GoLing_SetMotorSpeed(int speed, int dir);
+
+static double BLDC_TrapezoidalTargetTime = 1000.0;
+static uint8_t BLDC_MaxCount = 100;
+static uint8_t BLDC_GoLing_Speed = 0;
+static uint8_t BLDC_Table_Speed = 0;
+
 //初期化
 int appInit(void){
 	//D_CAN_SetReceiveAddress(8,9,10,11);
@@ -177,8 +186,8 @@ int appTask(void){
 		//Lottery_JP_SetSpeed(300,0);
 		//Lottery_JP_SetSpeed(JPC_MAX_SPEED,0);
 
-		//IO_SET_ROOMLIGHT();
-		//JP_Lift_Down();
+		BLDC_GoLing_SetMotorState(false, true);
+		BLDC_GoLing_SetSpeedTrapezoidal(100, -1);
 	}else{
 		_userButton = true;
 		IO_RESET_USERLED();
@@ -198,6 +207,8 @@ int appTask(void){
 		//D_PWM_Set(BLDC2,3000);
 		//D_PWM_Set(BLDC3,3500);
 		//JP_Lift_Up();
+		BLDC_GoLing_SetMotorState(false, true);
+		BLDC_GoLing_SetSpeedTrapezoidal(100, 1);
 	}
 
 	for(int i=0; i<8; i++){
@@ -225,4 +236,85 @@ int appTask(void){
 	D_Mess_printf("id : %3d, err : %3d\n", rcvData[1][0],rcvData[1][1]);
 	*/
 	return 0;
+}
+
+void BLDC_GoLing_SetSpeedTrapezoidal(int speed, int dir){
+	if(speed < 0) speed = 0;
+	if(speed > 100) speed = 100;
+	speed *= dir;
+
+	static int recentSetSpeed = 0;
+	static double nowSpeed = 0.0;
+	static double speedAdd = 0.0;
+	if(speed != recentSetSpeed){
+		speedAdd = ((double)speed - nowSpeed) / BLDC_TrapezoidalTargetTime;
+	}
+	recentSetSpeed = speed;
+
+	if(nowSpeed >= speed - 1.0 && nowSpeed <= speed + 1.0){
+		nowSpeed = speed;
+	}else{
+		nowSpeed += speedAdd;
+	}
+
+	if(nowSpeed > 0.0){
+		BLDC_GoLing_SetMotorSpeed(abs((int)nowSpeed), 1);
+	}else{
+		BLDC_GoLing_SetMotorSpeed(abs((int)nowSpeed), -1);
+	}
+}
+
+void BLDC_GoLing_SetMotorState(bool _stop, bool _ena){
+	static bool _isStop = false;
+	static bool _isEna = false;
+	_isStop = _stop;
+	_isEna = _ena;
+	if(_isStop){
+		IO_RESET_GOLING_BRAKE();
+		IO_RESET_GOLING_START();
+		return;
+	}else{
+		IO_SET_GOLING_BRAKE();
+		IO_SET_GOLING_START();
+	}
+	if(_isEna){
+		IO_SET_GOLING_BRAKE();
+		IO_SET_GOLING_START();
+	}else{
+		IO_RESET_GOLING_BRAKE();
+		IO_RESET_GOLING_START();
+	}
+}
+
+void BLDC_GoLing_SetMotorSpeed(int speed, int dir){
+	if(speed < 0) speed = 0;
+	if(speed > 100) speed = 100;
+	BLDC_GoLing_Speed = (uint8_t)((double)speed * (double)BLDC_MaxCount/100.0);
+	if(dir > 0){
+		IO_RESET_GOLING_DIR();
+	}else{
+		IO_SET_GOLING_DIR();
+	}
+}
+
+void BLDC_Set(void){
+	static uint8_t counter = 0;
+	static bool _golingSet = false;
+	static bool _tableSet = false;
+	if(counter >= BLDC_MaxCount){
+		counter = 0;
+		if(BLDC_GoLing_Speed != 0) IO_SET_GOLING_PWM();
+		if(BLDC_Table_Speed != 0) IO_SET_TABLE_PWM();
+		_golingSet = true;
+		_tableSet = true;
+	}
+	if(counter >= BLDC_GoLing_Speed && _golingSet){
+		IO_RESET_GOLING_PWM();
+		_golingSet = false;
+	}
+	if(counter >= BLDC_Table_Speed && _tableSet){
+		IO_RESET_TABLE_PWM();
+		_tableSet = false;
+	}
+	counter++;
 }

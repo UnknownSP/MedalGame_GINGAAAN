@@ -7,6 +7,7 @@
 		<item key="WizardProjectsImportPage.STORE_CLOSE_CREATED_PROJECTS_ID" value="false"/>
 		<item key="WizardProjectsImportPage.STORE_HIDE_CONFLICTING_PROJECTS_ID" value="false"/>
 		<list key="WizardProjectsImportPage.STORE_DIRECTORIES">
+			<item value="/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT"/>
 			<item value="/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOT"/>
 			<item value="/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_STEPPING"/>
 			<item value="/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_1STLOTSLIDE"/>
