@@ -1,23 +1,23 @@
-15:34:09 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+03:11:23 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
-../Core/Src/app.c:50:13: warning: unused variable 'idCount' [-Wunused-variable]
-   50 |  static int idCount = 8;
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
       |             ^~~~~~~
-../Core/Src/app.c:48:13: warning: unused variable 'testSendData4' [-Wunused-variable]
-   48 |  static int testSendData4 = 0;
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
       |             ^~~~~~~~~~~~~
-../Core/Src/app.c:42:13: warning: unused variable 'sendLength' [-Wunused-variable]
-   42 |  static int sendLength = 8;
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
       |             ^~~~~~~~~~
 At top level:
-../Core/Src/app.c:42:13: warning: 'sendLength' defined but not used [-Wunused-variable]
-../Core/Src/app.c:48:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
-   48 |  static int testSendData4 = 0;
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
       |             ^~~~~~~~~~~~~
-../Core/Src/app.c:50:13: warning: 'idCount' defined but not used [-Wunused-variable]
-   50 |  static int idCount = 8;
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
       |             ^~~~~~~
 arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: GINGAAAN_2NDLOT.elf
@@ -26,7 +26,154 @@ arm-none-eabi-size   GINGAAAN_2NDLOT.elf
 arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
 arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
    text	   data	    bss	    dec	    hex	filename
-  25712	     52	   3528	  29292	   726c	GINGAAAN_2NDLOT.elf
+  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT.bin
+ 
+Finished building: GINGAAAN_2NDLOT.list
+ 
+03:11:31 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+make -j3 all 
+arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
+   text	   data	    bss	    dec	    hex	filename
+  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+Finished building: default.size.stdout
+ 
+03:13:17 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT.bin
+ 
+Finished building: GINGAAAN_2NDLOT.list
+ 
+03:14:49 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT.bin
+ 
+Finished building: GINGAAAN_2NDLOT.list
+ 
+03:15:13 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT.bin
+ 
+Finished building: GINGAAAN_2NDLOT.list
+ 
+03:25:25 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT.elf
 Finished building: default.size.stdout
  
 Finished building: GINGAAAN_2NDLOT.bin

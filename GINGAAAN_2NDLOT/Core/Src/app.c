@@ -13,8 +13,12 @@
 void BLDC_GoLing_SetMotorState(bool _stop, bool _ena);
 void BLDC_GoLing_SetSpeedTrapezoidal(int speed, int dir);
 void BLDC_GoLing_SetMotorSpeed(int speed, int dir);
+void BLDC_Table_SetMotorState(bool _stop, bool _ena);
+void BLDC_Table_SetSpeedTrapezoidal(int speed, int dir);
+void BLDC_Table_SetMotorSpeed(int speed, int dir);
 
-static double BLDC_TrapezoidalTargetTime = 1000.0;
+static double BLDC_GoLing_TrapezoidalTargetTime = 25000.0;
+static double BLDC_Table_TrapezoidalTargetTime = 25000.0;
 static uint8_t BLDC_MaxCount = 100;
 static uint8_t BLDC_GoLing_Speed = 0;
 static uint8_t BLDC_Table_Speed = 0;
@@ -167,14 +171,17 @@ int appTask(void){
 			_userButton = false;
 			testSendData += 1;
 		}
-		IO_SET_GOLED_1();
-		IO_SET_HOLDLED_1();
-		IO_SET_GOLED_2();
-		IO_SET_HOLDLED_2();
-		IO_SET_GOLED_3();
-		IO_SET_HOLDLED_3();
-		IO_SET_GOLED_4();
-		IO_SET_HOLDLED_4();
+
+		IO_RESET_GOLED_1();
+		IO_RESET_HOLDLED_1();
+		IO_RESET_GOLED_2();
+		IO_RESET_HOLDLED_2();
+		IO_RESET_GOLED_3();
+		IO_RESET_HOLDLED_3();
+		IO_RESET_GOLED_4();
+		IO_RESET_HOLDLED_4();
+
+		IO_SET_2ND_SOL();
 		//IO_SET_BLDC1_ENA();
 		//IO_SET_BLDC2_ENA();
 		//D_PWM_Set(BLDC1,50);
@@ -187,19 +194,23 @@ int appTask(void){
 		//Lottery_JP_SetSpeed(JPC_MAX_SPEED,0);
 
 		BLDC_GoLing_SetMotorState(false, true);
-		BLDC_GoLing_SetSpeedTrapezoidal(100, -1);
+		BLDC_GoLing_SetSpeedTrapezoidal(20, -1);
+		BLDC_Table_SetMotorState(false, true);
+		BLDC_Table_SetSpeedTrapezoidal(15, 1);
 	}else{
 		_userButton = true;
 		IO_RESET_USERLED();
 
-		IO_RESET_GOLED_1();
-		IO_RESET_HOLDLED_1();
-		IO_RESET_GOLED_2();
-		IO_RESET_HOLDLED_2();
-		IO_RESET_GOLED_3();
-		IO_RESET_HOLDLED_3();
-		IO_RESET_GOLED_4();
-		IO_RESET_HOLDLED_4();
+		IO_SET_GOLED_1();
+		IO_SET_HOLDLED_1();
+		IO_SET_GOLED_2();
+		IO_SET_HOLDLED_2();
+		IO_SET_GOLED_3();
+		IO_SET_HOLDLED_3();
+		IO_SET_GOLED_4();
+		IO_SET_HOLDLED_4();
+
+		IO_RESET_2ND_SOL();
 		//IO_RESET_BLDC1_ENA();
 		//IO_RESET_BLDC2_ENA();
 		//IO_RESET_BLDC3_ENA();
@@ -208,7 +219,9 @@ int appTask(void){
 		//D_PWM_Set(BLDC3,3500);
 		//JP_Lift_Up();
 		BLDC_GoLing_SetMotorState(false, true);
-		BLDC_GoLing_SetSpeedTrapezoidal(100, 1);
+		BLDC_GoLing_SetSpeedTrapezoidal(20, 1);
+		BLDC_Table_SetMotorState(false, true);
+		BLDC_Table_SetSpeedTrapezoidal(15, -1);
 	}
 
 	for(int i=0; i<8; i++){
@@ -247,7 +260,7 @@ void BLDC_GoLing_SetSpeedTrapezoidal(int speed, int dir){
 	static double nowSpeed = 0.0;
 	static double speedAdd = 0.0;
 	if(speed != recentSetSpeed){
-		speedAdd = ((double)speed - nowSpeed) / BLDC_TrapezoidalTargetTime;
+		speedAdd = ((double)speed - nowSpeed) / BLDC_GoLing_TrapezoidalTargetTime;
 	}
 	recentSetSpeed = speed;
 
@@ -294,6 +307,65 @@ void BLDC_GoLing_SetMotorSpeed(int speed, int dir){
 		IO_RESET_GOLING_DIR();
 	}else{
 		IO_SET_GOLING_DIR();
+	}
+}
+
+void BLDC_Table_SetSpeedTrapezoidal(int speed, int dir){
+	if(speed < 0) speed = 0;
+	if(speed > 100) speed = 100;
+	speed *= dir;
+
+	static int recentSetSpeed = 0;
+	static double nowSpeed = 0.0;
+	static double speedAdd = 0.0;
+	if(speed != recentSetSpeed){
+		speedAdd = ((double)speed - nowSpeed) / BLDC_Table_TrapezoidalTargetTime;
+	}
+	recentSetSpeed = speed;
+
+	if(nowSpeed >= speed - 1.0 && nowSpeed <= speed + 1.0){
+		nowSpeed = speed;
+	}else{
+		nowSpeed += speedAdd;
+	}
+
+	if(nowSpeed > 0.0){
+		BLDC_Table_SetMotorSpeed(abs((int)nowSpeed), 1);
+	}else{
+		BLDC_Table_SetMotorSpeed(abs((int)nowSpeed), -1);
+	}
+}
+
+void BLDC_Table_SetMotorState(bool _stop, bool _ena){
+	static bool _isStop = false;
+	static bool _isEna = false;
+	_isStop = _stop;
+	_isEna = _ena;
+	if(_isStop){
+		IO_RESET_TABLE_BRAKE();
+		IO_RESET_TABLE_START();
+		return;
+	}else{
+		IO_SET_TABLE_BRAKE();
+		IO_SET_TABLE_START();
+	}
+	if(_isEna){
+		IO_SET_TABLE_BRAKE();
+		IO_SET_TABLE_START();
+	}else{
+		IO_RESET_TABLE_BRAKE();
+		IO_RESET_TABLE_START();
+	}
+}
+
+void BLDC_Table_SetMotorSpeed(int speed, int dir){
+	if(speed < 0) speed = 0;
+	if(speed > 100) speed = 100;
+	BLDC_Table_Speed = (uint8_t)((double)speed * (double)BLDC_MaxCount/100.0);
+	if(dir > 0){
+		IO_RESET_TABLE_DIR();
+	}else{
+		IO_SET_TABLE_DIR();
 	}
 }
 
