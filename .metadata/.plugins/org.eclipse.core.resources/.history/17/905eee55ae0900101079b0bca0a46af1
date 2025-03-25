@@ -1,0 +1,97 @@
+/*
+ * app.h
+ *
+ *  Created on: Mar 11, 2023
+ *      Author: UnknownSP
+ */
+
+#ifndef INC_APP_H_
+#define INC_APP_H_
+
+#include "main.h"
+
+int appTask(void);
+int appInit(void);
+
+void BLDC_Set(void);
+
+#define USE_I2C false
+#define USE_PWM false
+
+static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+
+#define CAN_SEND_INTERVAL 1000
+#define SM_SEND_INTERVAL 2
+#define SM_STEPCOUNT 3800
+
+#define CAN_MECH1_ADDRESS 0x009
+#define CAN_ST2_ADDRESS 0x200
+#define CAN_ST3_ADDRESS 0x300
+#define CAN_ST4_ADDRESS 0x400
+#define CAN_MAIN_ADDRESS 0x000
+#define CAN_MECH1 0
+#define CAN_ST2 1
+#define CAN_ST3 2
+#define CAN_ST4 3
+#define CAN_MAIN 4
+
+#define IO_SET_GOLING_START()	(D_GPIO_Set(GPIOA,GPIO_PIN_7))
+#define IO_RESET_GOLING_START()	(D_GPIO_Reset(GPIOA,GPIO_PIN_7))
+#define IO_SET_GOLING_DIR()		(D_GPIO_Set(GPIOB,GPIO_PIN_1))
+#define IO_RESET_GOLING_DIR()	(D_GPIO_Reset(GPIOB,GPIO_PIN_1))
+#define IO_SET_GOLING_BRAKE()	(D_GPIO_Set(GPIOC,GPIO_PIN_3))
+#define IO_RESET_GOLING_BRAKE()	(D_GPIO_Reset(GPIOC,GPIO_PIN_3))
+#define IO_SET_GOLING_PWM()		(D_GPIO_Set(GPIOA,GPIO_PIN_6))
+#define IO_RESET_GOLING_PWM()	(D_GPIO_Reset(GPIOA,GPIO_PIN_6))
+
+#define IO_SET_TABLE_START()	(D_GPIO_Set(GPIOB,GPIO_PIN_0))
+#define IO_RESET_TABLE_START()	(D_GPIO_Reset(GPIOB,GPIO_PIN_0))
+#define IO_SET_TABLE_DIR()		(D_GPIO_Set(GPIOA,GPIO_PIN_1))
+#define IO_RESET_TABLE_DIR()	(D_GPIO_Reset(GPIOA,GPIO_PIN_1))
+#define IO_SET_TABLE_BRAKE()	(D_GPIO_Set(GPIOA,GPIO_PIN_15))
+#define IO_RESET_TABLE_BRAKE()	(D_GPIO_Reset(GPIOA,GPIO_PIN_15))
+#define IO_SET_TABLE_PWM()		(D_GPIO_Set(GPIOC,GPIO_PIN_1))
+#define IO_RESET_TABLE_PWM()	(D_GPIO_Reset(GPIOC,GPIO_PIN_1))
+
+#define IO_SET_2ND_SOL()		(D_GPIO_Set(GPIOC,GPIO_PIN_0))
+#define IO_RESET_2ND_SOL()		(D_GPIO_Reset(GPIOC,GPIO_PIN_0))
+
+#define IO_SET_GOLED_1()		(D_GPIO_Set(GPIOC,GPIO_PIN_10))
+#define IO_RESET_GOLED_1()		(D_GPIO_Reset(GPIOC,GPIO_PIN_10))
+#define IO_SET_HOLDLED_1()		(D_GPIO_Set(GPIOC,GPIO_PIN_11))
+#define IO_RESET_HOLDLED_1()	(D_GPIO_Reset(GPIOC,GPIO_PIN_11))
+#define IO_SET_GOLED_2()		(D_GPIO_Set(GPIOC,GPIO_PIN_12))
+#define IO_RESET_GOLED_2()		(D_GPIO_Reset(GPIOC,GPIO_PIN_12))
+#define IO_SET_HOLDLED_2()		(D_GPIO_Set(GPIOD,GPIO_PIN_2))
+#define IO_RESET_HOLDLED_2()	(D_GPIO_Reset(GPIOD,GPIO_PIN_2))
+#define IO_SET_GOLED_3()		(D_GPIO_Set(GPIOB,GPIO_PIN_7))
+#define IO_RESET_GOLED_3()		(D_GPIO_Reset(GPIOB,GPIO_PIN_7))
+#define IO_SET_HOLDLED_3()		(D_GPIO_Set(GPIOA,GPIO_PIN_0))
+#define IO_RESET_HOLDLED_3()	(D_GPIO_Reset(GPIOA,GPIO_PIN_0))
+#define IO_SET_GOLED_4()		(D_GPIO_Set(GPIOA,GPIO_PIN_4))
+#define IO_RESET_GOLED_4()		(D_GPIO_Reset(GPIOA,GPIO_PIN_4))
+#define IO_SET_HOLDLED_4()		(D_GPIO_Set(GPIOC,GPIO_PIN_2))
+#define IO_RESET_HOLDLED_4()	(D_GPIO_Reset(GPIOC,GPIO_PIN_2))
+
+#define IO_READ_2NDBALL_2() (!D_GPIO_Read(GPIOB,GPIO_PIN_15))
+#define IO_READ_2NDBALL_3() (!D_GPIO_Read(GPIOA,GPIO_PIN_8))
+#define IO_READ_2NDBALL_4() (!D_GPIO_Read(GPIOB,GPIO_PIN_2))
+#define IO_READ_2NDBALL_5() (!D_GPIO_Read(GPIOC,GPIO_PIN_7))
+#define IO_READ_2NDBALL_6() (!D_GPIO_Read(GPIOB,GPIO_PIN_6))
+#define IO_READ_2NDBALL_7() (!D_GPIO_Read(GPIOB,GPIO_PIN_12))
+#define IO_READ_2NDBALL_8() (!D_GPIO_Read(GPIOA,GPIO_PIN_11))
+#define IO_READ_2NDBALL_9() (!D_GPIO_Read(GPIOA,GPIO_PIN_12))
+
+#define IO_READ_2NDBALL_1() (!D_GPIO_Read(GPIOC,GPIO_PIN_4))
+#define IO_READ_2NDSOL_OPEN() (!D_GPIO_Read(GPIOB,GPIO_PIN_5))
+#define IO_READ_2NDSOL_CLOSE() (!D_GPIO_Read(GPIOB,GPIO_PIN_13))
+#define IO_READ_GOLING_HOME() (!D_GPIO_Read(GPIOB,GPIO_PIN_4))
+#define IO_READ_TABLE_HOME() (!D_GPIO_Read(GPIOB,GPIO_PIN_14))
+
+#define IO_SET_USERLED() (D_GPIO_Set(GPIOA,GPIO_PIN_5))
+#define IO_RESET_USERLED() (D_GPIO_Reset(GPIOA,GPIO_PIN_5))
+#define IO_READ_USERBUTTON() (!D_GPIO_Read(GPIOC,GPIO_PIN_13))
+
+#endif /* INC_APP_H_ */

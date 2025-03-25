@@ -1,4 +1,177 @@
-03:11:23 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+03:55:43 **** Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+03:56:48 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+04:13:18 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:14:44 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
@@ -19,28 +192,171 @@ At top level:
 ../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
    54 |  static int idCount = 8;
       |             ^~~~~~~
-arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GINGAAAN_2NDLOT.elf
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
  
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
-arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
-arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
    text	   data	    bss	    dec	    hex	filename
-  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
 Finished building: default.size.stdout
  
-Finished building: GINGAAAN_2NDLOT.bin
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
  
-Finished building: GINGAAAN_2NDLOT.list
+Finished building: GINGAAAN_2NDLOT_ONLY.list
  
-03:11:31 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+04:17:25 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
 make -j3 all 
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
    text	   data	    bss	    dec	    hex	filename
-  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
 Finished building: default.size.stdout
  
-03:13:17 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:19:30 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
@@ -61,21 +377,771 @@ At top level:
 ../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
    54 |  static int idCount = 8;
       |             ^~~~~~~
-arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GINGAAAN_2NDLOT.elf
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
  
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
-arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
-arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
    text	   data	    bss	    dec	    hex	filename
-  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
 Finished building: default.size.stdout
  
-Finished building: GINGAAAN_2NDLOT.bin
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
  
-Finished building: GINGAAAN_2NDLOT.list
+Finished building: GINGAAAN_2NDLOT_ONLY.list
  
-03:14:49 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+04:20:58 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:21:23 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:21:36 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:21:49 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:22:12 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:22:34 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
@@ -96,21 +1162,21 @@ At top level:
 ../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
    54 |  static int idCount = 8;
       |             ^~~~~~~
-arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GINGAAAN_2NDLOT.elf
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
  
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
-arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
-arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
    text	   data	    bss	    dec	    hex	filename
-  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
 Finished building: default.size.stdout
  
-Finished building: GINGAAAN_2NDLOT.bin
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
  
-Finished building: GINGAAAN_2NDLOT.list
+Finished building: GINGAAAN_2NDLOT_ONLY.list
  
-03:15:13 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+04:35:51 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
@@ -131,21 +1197,621 @@ At top level:
 ../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
    54 |  static int idCount = 8;
       |             ^~~~~~~
-arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GINGAAAN_2NDLOT.elf
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
  
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
-arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
-arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
    text	   data	    bss	    dec	    hex	filename
-  26380	     60	   3552	  29992	   7528	GINGAAAN_2NDLOT.elf
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
 Finished building: default.size.stdout
  
-Finished building: GINGAAAN_2NDLOT.bin
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
  
-Finished building: GINGAAAN_2NDLOT.list
+Finished building: GINGAAAN_2NDLOT_ONLY.list
  
-03:25:25 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT ****
+04:36:33 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:37:43 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:37:52 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:38:28 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:38:44 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
 make -j3 all 
 arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
 ../Core/Src/app.c: In function 'appTask':
@@ -166,17 +1832,564 @@ At top level:
 ../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
    54 |  static int idCount = 8;
       |             ^~~~~~~
-arm-none-eabi-gcc -o "GINGAAAN_2NDLOT.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: GINGAAAN_2NDLOT.elf
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
  
-arm-none-eabi-size   GINGAAAN_2NDLOT.elf 
-arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT.elf  > "GINGAAAN_2NDLOT.list"
-arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT.elf  "GINGAAAN_2NDLOT.bin"
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
    text	   data	    bss	    dec	    hex	filename
-  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT.elf
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
 Finished building: default.size.stdout
  
-Finished building: GINGAAAN_2NDLOT.bin
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
  
-Finished building: GINGAAAN_2NDLOT.list
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:44:25 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:49:22 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Drivers/PWM/Src/pwm.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/PWM/Src/pwm.d" -MT"Drivers/PWM/Src/pwm.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/PWM/Src/pwm.o"
+arm-none-eabi-gcc "../Drivers/Message/Src/message.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/Message/Src/message.d" -MT"Drivers/Message/Src/message.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/Message/Src/message.o"
+arm-none-eabi-gcc "../Drivers/I2C/Src/I2C.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/I2C/Src/I2C.d" -MT"Drivers/I2C/Src/I2C.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/I2C/Src/I2C.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/PWM/Src/../Inc/pwm.h:11,
+                 from ../Drivers/PWM/Src/pwm.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/I2C/Src/../Inc/I2C.h:11,
+                 from ../Drivers/I2C/Src/I2C.c:9:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/Message/Src/message.c:7:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc "../Drivers/GPIO/Src/GPIO.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/GPIO/Src/GPIO.d" -MT"Drivers/GPIO/Src/GPIO.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/GPIO/Src/GPIO.o"
+arm-none-eabi-gcc "../Drivers/CAN/Src/CAN.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Drivers/CAN/Src/CAN.d" -MT"Drivers/CAN/Src/CAN.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Drivers/CAN/Src/CAN.o"
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/GPIO/Src/../Inc/GPIO.h:11,
+                 from ../Drivers/GPIO/Src/GPIO.c:8:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_Receive':
+../Drivers/CAN/Src/CAN.c:85:6: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+   85 |  int setIdx = 0;
+      |      ^~~~~~
+../Drivers/CAN/Src/CAN.c: In function 'D_CAN_ReceiveCallBack':
+../Drivers/CAN/Src/CAN.c:125:7: warning: variable 'setIdx' set but not used [-Wunused-but-set-variable]
+  125 |   int setIdx = 0;
+      |       ^~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Drivers/CAN/Src/../Inc/CAN.h:11,
+                 from ../Drivers/CAN/Src/CAN.c:8:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_hal_msp.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_hal_msp.d" -MT"Core/Src/stm32f4xx_hal_msp.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_hal_msp.o"
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/main.c:21:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_hal_msp.c:23:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+../Core/Src/stm32f4xx_it.c: In function 'CAN1_TX_IRQHandler':
+../Core/Src/stm32f4xx_it.c:242:3: warning: implicit declaration of function 'HAL_CAN_TxMailboxCompleteCallback'; did you mean 'HAL_CAN_TxMailbox2CompleteCallback'? [-Wimplicit-function-declaration]
+  242 |   HAL_CAN_TxMailboxCompleteCallback();
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |   HAL_CAN_TxMailbox2CompleteCallback
+In file included from ../Core/Inc/main.h:38,
+                 from ../Core/Src/stm32f4xx_it.c:22:
+At top level:
+../Core/Inc/app.h:23:16: warning: 'rcvDataJudge' defined but not used [-Wunused-variable]
+   23 | static uint8_t rcvDataJudge[8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~~~~~~
+../Core/Inc/app.h:22:16: warning: 'rcvData' defined but not used [-Wunused-variable]
+   22 | static uint8_t rcvData[4][8]; //各ステーションからのCAN受信データ
+      |                ^~~~~~~
+../Core/Inc/app.h:21:16: warning: 'sndData' defined but not used [-Wunused-variable]
+   21 | static uint8_t sndData[4][8]; //各ステーションへのCAN送信データ
+      |                ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+04:49:44 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:00:20 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:01:03 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:02:17 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c:22:32: warning: unsigned conversion from 'int' to 'uint8_t' {aka 'unsigned char'} changes value from '1000' to '232' [-Woverflow]
+   22 | static uint8_t BLDC_MaxCount = 1000;
+      |                                ^~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:02:43 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c:22:32: warning: unsigned conversion from 'int' to 'uint8_t' {aka 'unsigned char'} changes value from '1000' to '232' [-Woverflow]
+   22 | static uint8_t BLDC_MaxCount = 1000;
+      |                                ^~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:03:03 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c:22:32: warning: unsigned conversion from 'int' to 'uint8_t' {aka 'unsigned char'} changes value from '1000' to '232' [-Woverflow]
+   22 | static uint8_t BLDC_MaxCount = 1000;
+      |                                ^~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:03:19 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c:22:32: warning: unsigned conversion from 'int' to 'uint8_t' {aka 'unsigned char'} changes value from '1000' to '232' [-Woverflow]
+   22 | static uint8_t BLDC_MaxCount = 1000;
+      |                                ^~~~
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:03:58 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:04:14 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+05:04:33 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
  

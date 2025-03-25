@@ -1,0 +1,38 @@
+05:04:33 **** Incremental Build of configuration Debug for project GINGAAAN_2NDLOT_ONLY ****
+make -j3 all 
+arm-none-eabi-gcc "../Core/Src/app.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/app.d" -MT"Core/Src/app.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/app.o"
+../Core/Src/app.c: In function 'appTask':
+../Core/Src/app.c:54:13: warning: unused variable 'idCount' [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+../Core/Src/app.c:52:13: warning: unused variable 'testSendData4' [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:46:13: warning: unused variable 'sendLength' [-Wunused-variable]
+   46 |  static int sendLength = 8;
+      |             ^~~~~~~~~~
+At top level:
+../Core/Src/app.c:46:13: warning: 'sendLength' defined but not used [-Wunused-variable]
+../Core/Src/app.c:52:13: warning: 'testSendData4' defined but not used [-Wunused-variable]
+   52 |  static int testSendData4 = 0;
+      |             ^~~~~~~~~~~~~
+../Core/Src/app.c:54:13: warning: 'idCount' defined but not used [-Wunused-variable]
+   54 |  static int idCount = 8;
+      |             ^~~~~~~
+arm-none-eabi-gcc -o "GINGAAAN_2NDLOT_ONLY.elf" @"objects.list"   -mcpu=cortex-m4 -T"/Users/UnknownSP/STM32CubeIDE/GINGAAAN/GINGAAAN_2NDLOT_ONLY/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GINGAAAN_2NDLOT_ONLY.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: GINGAAAN_2NDLOT_ONLY.elf
+ 
+arm-none-eabi-size   GINGAAAN_2NDLOT_ONLY.elf 
+arm-none-eabi-objdump -h -S  GINGAAAN_2NDLOT_ONLY.elf  > "GINGAAAN_2NDLOT_ONLY.list"
+arm-none-eabi-objcopy  -O binary  GINGAAAN_2NDLOT_ONLY.elf  "GINGAAAN_2NDLOT_ONLY.bin"
+   text	   data	    bss	    dec	    hex	filename
+  26400	     60	   3552	  30012	   753c	GINGAAAN_2NDLOT_ONLY.elf
+Finished building: default.size.stdout
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.bin
+ 
+Finished building: GINGAAAN_2NDLOT_ONLY.list
+ 
+
+05:04:34 Build Finished. 0 errors, 6 warnings. (took 814ms)
+
